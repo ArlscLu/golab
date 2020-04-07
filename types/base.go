@@ -1,12 +1,12 @@
 package types
 
-var arr [3]int = [3]int{1, 2, 3}
+//B bbb
+var B bool = true
 
-const a = 100
+//Num num
+var Num int = 13
 
-/*
-P1 FEEE
-*/
-func P1() rune {
-	return '平'
-}
+//X string
+var X string = "U+000A"
+
+var Y string = "上海"
