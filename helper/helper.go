@@ -11,10 +11,10 @@ func NewLine() {
 
 //StartLine 输出开始行
 func StartLine() {
-	fmt.Println("*****start******")
+	fmt.Println("\n\n*****start******")
 }
 
 //DivideLine 分割行
 func DivideLine() {
-	fmt.Println("********divide**********")
+	fmt.Println("\n\n********divide**********")
 }

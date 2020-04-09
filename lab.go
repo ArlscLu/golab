@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"math"
+	"os"
 
 	"github.com/arlsclu7/golab/helper"
 	"github.com/arlsclu7/golab/types"
@@ -9,6 +11,48 @@ import (
 
 func main() {
 	helper.StartLine()
+	println(math.Pi)
+	type Weekday int
+	const (
+		Monday Weekday = iota + 1
+		Tuesday
+		Wednesday
+		Thursday
+		Friday
+		Saturday
+		Sunday
+	)
+	println(Tuesday)
+
+	os.Exit(1)
+	gg := []string{}
+	// ff := []string{"1", "2", "3"}
+	for i := 0; i < 6; i++ {
+		gg = append(gg, "hello", "world")
+		fmt.Println(i, gg, cap(gg), " ")
+	}
+	helper.DivideLine()
+	dd := []int{}
+	fmt.Println(cap(dd))
+	for i := 0; i < 17; i++ {
+		dd = append(dd, i)
+		fmt.Println(i, dd, cap(dd), " ")
+	}
+	helper.DivideLine()
+	ee := []bool{}
+	fmt.Println(cap(ee))
+	for i := 0; i < 5; i++ {
+		ee = append(ee, true, false)
+		fmt.Println(i, ee, cap(ee), " ")
+	}
+	var aa = "mystring"
+	var bb = &aa
+	println(aa, bb)
+	var cc *int = new(int)
+	*cc = 100
+	println(*cc)
+
+	helper.DivideLine()
 	d := []int{}
 	fmt.Println(cap(d))
 	for i := 0; i < 16; i++ {
