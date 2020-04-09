@@ -9,8 +9,22 @@ var Slice1 = make([]int, 5, 10)
 var Slice2 = []int{1, 2, 3}
 
 type Employee struct {
-	Id   int
+	ID   int
 	name string
 }
 
 var E1 Employee
+
+type Complex struct {
+	ID        int
+	Source    []int
+	IsMarried bool
+	Remark    string
+	Employee  Employee
+	AgeExp    [5]float32
+}
+type Weekday int
+
+var C1 Complex
+
+var Map map = {"s1":1,"s2":2}

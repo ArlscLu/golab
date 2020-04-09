@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math"
 	"os"
 
 	"github.com/arlsclu7/golab/helper"
@@ -11,8 +10,18 @@ import (
 
 func main() {
 	helper.StartLine()
-	println(math.Pi)
+	// println(math.Pi)
 	type Weekday int
+	type Person struct {
+		Name string
+		Sex  int
+	}
+	var ccc = make(types.Complex)
+	var ddd = make(Person)
+
+	// *sp.Name = "Tom"
+	fmt.Println(types.C1)
+	os.Exit(1)
 	const (
 		Monday Weekday = iota + 1
 		Tuesday
