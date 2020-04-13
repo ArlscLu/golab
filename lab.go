@@ -10,14 +10,62 @@ import (
 
 func main() {
 	helper.StartLine()
+	months := [...]string{
+		1:  "January",
+		2:  "February",
+		3:  "March",
+		4:  "April",
+		5:  "May",
+		6:  "June",
+		7:  "july",
+		8:  "august",
+		9:  "september",
+		10: "october",
+		11: "november",
+		12: "December"}
+	type Season string
+	s1 := new(Season)
+	*s1 = "111"
+	fmt.Println(*s1)
+	os.Exit(1)
+
+	m1 := months[1:3]
+	fmt.Printf("months的类型是%T \n", months)
+	fmt.Printf("m1的类型是%T \n", m1)
+	os.Exit(1)
+
+	fmt.Printf("%T", months)
+	fmt.Println(months)
+	os.Exit(0)
+	fmt.Println(types.C0, types.C1, types.C2, types.C4)
+	fmt.Printf("%U", types.C4)
+	fmt.Printf("%d", 0x4e2d)
+	helper.StartLine()
+	os.Exit(0)
+	r := [...]int{10: 1}
+	fmt.Println(r)
+	helper.DivideLine()
+	m := make(map[string]int, 5)
+	mm := m
+	mm["s1"] = 10
+	fmt.Println(m)
+	v := make([]string, 5)
+	vv := v
+	vv[0], vv[1] = "hello", "world"
+	fmt.Println(v, cap(v))
+	nnn := new(string)
+	*nnn = "tmesaß"
+	fff := func() string {
+		return "helloworld"
+	}
+	fmt.Printf("%T,%T,%T,%v,%T", mm, vv, nnn, *nnn, fff)
+	os.Exit(0)
 	// println(math.Pi)
 	type Weekday int
 	type Person struct {
 		Name string
 		Sex  int
 	}
-	var ccc = make(types.Complex)
-	var ddd = make(Person)
 
 	// *sp.Name = "Tom"
 	fmt.Println(types.C1)

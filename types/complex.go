@@ -24,7 +24,3 @@ type Complex struct {
 	AgeExp    [5]float32
 }
 type Weekday int
-
-var C1 Complex
-
-var Map map = {"s1":1,"s2":2}
