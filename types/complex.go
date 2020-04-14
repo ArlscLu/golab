@@ -16,6 +16,7 @@ type Employee struct {
 var E1 Employee
 
 type Complex struct {
+	IS        int
 	ID        int
 	Source    []int
 	IsMarried bool
@@ -23,4 +24,13 @@ type Complex struct {
 	Employee  Employee
 	AgeExp    [5]float32
 }
-type Weekday int
+
+//Cc1 ddd
+var Cc1 = Complex{
+	ID:     1,
+	Source: []int{1, 2, 3}}
+
+//Pt xxx
+func Pt() Complex {
+	return Cc1
+}

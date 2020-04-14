@@ -10,6 +10,8 @@ import (
 
 func main() {
 	helper.StartLine()
+	fmt.Println(types.Pt())
+	helper.DivideLine()
 	fmt.Println(types.Base())
 	m1 := map[int]string{
 		1: "hello",
