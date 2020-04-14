@@ -34,3 +34,12 @@ var Cc1 = Complex{
 func Pt() Complex {
 	return Cc1
 }
+
+type (
+	TypeA1 [5]int
+	TypeB1 struct {
+		BTypeb1 int
+	}
+	TypeC1 *int
+	TypeD1 func()
+)
