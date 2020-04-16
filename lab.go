@@ -1,50 +1,49 @@
 package main
 
 import (
-	"fmt"
 	"os"
 
-	"github.com/arlsclu7/golab/helper"
 	"github.com/arlsclu7/golab/types"
 )
 
 func main() {
-	helper.StartLine()
-	fmt.Println(types.Pt())
-	helper.DivideLine()
-	fmt.Println(types.Base())
-	m1 := map[int]string{
-		1: "hello",
-		2: "world",
-	}
-	m2 := make(map[string]int)
-	m2["hello"] = 1
-	m2["world"] = 2
-	delete(m2, "hello")
-	fmt.Println(m1)
-	fmt.Println(m2)
-	os.Exit(0)
-	var s1 string = "helloworld"
-	var s2 int8 = -0b10000000
-	months := []string{
-		1:  "January",
-		2:  "February",
-		3:  "March",
-		4:  "April",
-		5:  "May",
-		6:  "June",
-		7:  "july",
-		8:  "august",
-		9:  "september",
-		10: "october",
-		11: "november",
-		12: "December"}
-	for _, one := range months {
-		fmt.Printf("值为%v, 类型为%T \n", one, one)
-	}
-	fmt.Println(s1[0:10])
-	fmt.Println(s2)
-	os.Exit(0)
+	types.Pc()
+	os.Exit(21)
+	// helper.StartLine()
+	// helper.DivideLine()
+	// fmt.Println(types.Base())
+	// m1 := map[int]string{
+	// 	1: "hello",
+	// 	2: "world",
+	// }
+	// m2 := make(map[string]int)
+	// m2["hello"] = 1
+	// m2["world"] = 2
+	// delete(m2, "hello")
+	// fmt.Println(m1)
+	// fmt.Println(m2)
+	// os.Exit(0)
+	// var s1 string = "helloworld"
+	// var s2 int8 = -0b10000000
+	// months := []string{
+	// 	1:  "January",
+	// 	2:  "February",
+	// 	3:  "March",
+	// 	4:  "April",
+	// 	5:  "May",
+	// 	6:  "June",
+	// 	7:  "july",
+	// 	8:  "august",
+	// 	9:  "september",
+	// 	10: "october",
+	// 	11: "november",
+	// 	12: "December"}
+	// for _, one := range months {
+	// 	fmt.Printf("值为%v, 类型为%T \n", one, one)
+	// }
+	// fmt.Println(s1[0:10])
+	// fmt.Println(s2)
+	// os.Exit(0)
 	// aaa := [...]int{2, 3, 4, 16}
 	// bbb := []int{5, 3, 4, 1}
 	// ccc := bbb
