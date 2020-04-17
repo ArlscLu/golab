@@ -2,6 +2,8 @@ package types
 
 import (
 	"fmt"
+
+	"github.com/arlsclu7/golab/helper"
 )
 
 /** print
@@ -33,6 +35,7 @@ type (
 		x6     M6
 	}
 	M8 *int
+	M9 func() M7
 )
 
 //Pc 测试type类型创建及赋值
@@ -56,6 +59,17 @@ func Pc() {
 		x6:  make(map[int]string, 7),
 	}
 	var y8 M8 = new(int)
-	fmt.Printf("%T,%T ,%T ,%T,%T,%T,%T,%T,%T\n\n", y1, y11, y2, y3, y4, y5, y6, y7, y8)
-	fmt.Println(y1, y11, y2, y3, y4, y5, y6, y7, y8)
+	var y9 M9 = func() M7 { return y7 }
+
+	helper.StartLine()
+
+	fmt.Printf("%T,%T ,%T ,%T,%T,%T,%T,%T,%T,%T\n\n", y1, y11, y2, y3, y4, y5, y6, y7, y8, y9)
+
+	helper.StartLine()
+
+	fmt.Println(y1, y11, y2, y3, y4, y5, y6, y7, y8, y9)
+
+	helper.StartLine()
+
+	fmt.Println(y9())
 }
