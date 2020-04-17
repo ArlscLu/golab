@@ -46,7 +46,7 @@ func Pc() {
 	var y3 = true
 	var y4 M4 = [3]int{4, 5, 6}
 	var y5 M5 = M5{X: 1.2, Y: 4}
-	var y6 M6 = make(map[int]string, 10)
+	var y6 = make(map[int]string, 10)
 	var y7 M7 = M7{
 		x0:  10,
 		x1:  11,
@@ -60,16 +60,64 @@ func Pc() {
 	}
 	var y8 M8 = new(int)
 	var y9 M9 = func() M7 { return y7 }
+	var y10 = [3]int{3, 4, 5}
+	helper.StartLine()
+
+	fmt.Printf("%T,%T ,%T ,%T,%T,%T,%T,%T,%T,%T,%T\n\n",
+		y1, y11, y2, y3, y4, y5, y6, y7, y8, y9, y10)
 
 	helper.StartLine()
 
-	fmt.Printf("%T,%T ,%T ,%T,%T,%T,%T,%T,%T,%T\n\n", y1, y11, y2, y3, y4, y5, y6, y7, y8, y9)
-
-	helper.StartLine()
-
-	fmt.Println(y1, y11, y2, y3, y4, y5, y6, y7, y8, y9)
+	fmt.Println(y1, y11, y2, y3, y4, y5, y6, y7, y8, y9, y10)
 
 	helper.StartLine()
 
 	fmt.Println(y9())
+
+}
+
+//Pn  test literals of all types
+func Pn() {
+	// x1 := true
+	// x2, x22, x222 := 10, -0b111, 0x1f
+	x3 := "hello"
+	// x4 := [3]string{"hello", "world", "!"}
+	// x5 := []bool{true, false, true, false}
+	type t6 struct {
+		Name string
+		Age  uint8
+	}
+	// x6 := t6{
+	// 	Name: "Tom",
+	// 	Age:  18,
+	// }
+	// x7 := new(int)
+	// x8 := func() int {
+	// 	return 10
+	// }
+	x10 := map[string]int{
+		"j": 12,
+		"k": 32,
+	}
+	X11 := func() string {
+		return x3
+	}
+	x12 := t6{
+		Name: "jack",
+	}
+	x13 := struct {
+		Name string
+	}{
+		Name: "rose",
+	}
+
+	fmt.Println(X11(), x10, x12, x13)
+
+}
+
+var s11 string = "helloworld!"
+
+//X11  测试closure  闭包函数，可以使用当前scope的变量
+var X11 = func() string {
+	return s11
 }

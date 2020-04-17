@@ -3,12 +3,18 @@ package main
 import (
 	"os"
 
-	"github.com/arlsclu7/golab/types"
+	"github.com/arlsclu7/golab/fss"
+	"github.com/arlsclu7/golab/methods"
 )
 
 func main() {
-	types.Pc()
+	// types.Pn()
+	// fmt.Println(types.X11())
+	fss.F10()
+	fss.F20()
+	methods.M1()
 	os.Exit(21)
+
 	// helper.StartLine()
 	// helper.DivideLine()
 	// fmt.Println(types.Base())
