@@ -4,16 +4,13 @@ import (
 	"os"
 
 	"github.com/arlsclu7/golab/fss"
-	"github.com/arlsclu7/golab/methods"
 )
 
 func main() {
-	// types.Pn()
-	// fmt.Println(types.X11())
-	fss.F10()
+	// fss.F10()
 	fss.F20()
-	methods.M1()
-	os.Exit(21)
+	// methods.M1()
+	os.Exit(0)
 
 	// helper.StartLine()
 	// helper.DivideLine()

@@ -4,8 +4,18 @@ import (
 	"fmt"
 )
 
+//F20 all
+func F20() {
+	fmt.Println(f21()())
+	fmt.Println(f22(1, 2, 3))
+	fmt.Println(f23())
+	fmt.Println(f24())
+	fmt.Println(f25())
+	fmt.Println(f26())
+}
+
 //F21 xxxclosure
-func F21() func() int {
+func f21() func() int {
 	x := 1
 	return func() int {
 		x = x << 1
@@ -14,7 +24,7 @@ func F21() func() int {
 }
 
 //F22 xxx multi input
-func F22(vals ...int) int {
+func f22(vals ...int) int {
 	total := 0
 	for _, val := range vals {
 		total += val
@@ -22,11 +32,25 @@ func F22(vals ...int) int {
 	return total
 }
 
-//F20 all
-func F20() {
-	fmt.Println("***来自fss.f2***")
-	fmt.Println(
-		F21()(),
-		F22(1, 2, 3),
-	)
+func f23() ([]string, [5]int) {
+	x := make([]string, 5, 5)
+	x = []string{"h", "e", "l", "l", "o"}
+	y := [5]int{1, 2, 3, 4, 5}
+	return x, y
+}
+
+func f24() *int {
+	x := new(int)
+	return x
+}
+
+func f25() []string {
+	x := make([]string, 5, 5)
+	return x
+}
+
+func f26() *int {
+	a := 10
+	b := &a
+	return b
 }
