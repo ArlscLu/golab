@@ -10,10 +10,10 @@
 */
 
 /**
-ta = type of address 伴随
-a = address
-tv = type of value
-v = value
+ta = type of address  伴随v的变动而变动
+a = address           系统定义
+tv = type of value    伴随v的变动而变动
+v = value             可定义指向别的地址
 
 */
 
