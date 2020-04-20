@@ -2,6 +2,8 @@ package fss
 
 import (
 	"fmt"
+
+	"github.com/arlsclu7/golab/helper"
 )
 
 //F20 all
@@ -20,6 +22,8 @@ func F20() {
 	// f291(&t22)
 	// f292()
 	f293()
+	helper.NewLine()
+	f294()
 }
 
 //F21 xxxclosure
@@ -203,4 +207,13 @@ func f293() {
 	fmt.Println(xx)
 	fmt.Printf("*xx 类型%T\n", *xx)
 	fmt.Println(*xx)
+}
+
+func f294() {
+	a := 10
+	b := new(int)
+	*b = 11
+
+	fmt.Printf("%T,%T \n", a, b)
+	fmt.Println(a, b)
 }
