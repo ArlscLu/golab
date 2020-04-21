@@ -211,9 +211,24 @@ func f293() {
 
 func f294() {
 	a := 10
-	b := new(int)
+	b := new(uint8)
+	if *b == 0 {
+		println(123)
+	}
+	bb, cc, dd, ee := b, b, b, b
 	*b = 11
-
-	fmt.Printf("%T,%T \n", a, b)
-	fmt.Println(a, b)
+	fmt.Println(*bb, *cc, *dd, *ee)
+	//0xc00000e038 *uint8 0xc0000180e8 b
+	//0xc0000180e8 uint 0
+	// *b = 11
+	c := []int{1, 2, 3, 4, 5}
+	c = append(c, 123)
+	type t2 struct {
+		Name string
+	}
+	d := t2{
+		Name: "Tom",
+	}
+	fmt.Printf("%T,%T,%T,%T,%T\n", a, b, &b, c, d)
+	fmt.Println(a, b, &b, c, d)
 }
