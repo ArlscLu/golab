@@ -121,3 +121,33 @@ var s11 string = "helloworld!"
 var X11 = func() string {
 	return s11
 }
+
+func Parray() {
+	a := [5]int{1, 2, 3}
+	a[4] = len(a)
+	b := [...]int{15: 16}
+	for i, v := range a {
+		fmt.Println("index:", i, "value:", v)
+	}
+	for i, v := range b {
+		fmt.Println("index:", i, "value:", v)
+	}
+}
+
+func Pslice() {
+	a := []string{"h", "e", "l", "l", "o"}
+	a = append(a, "!")
+	for i, v := range a {
+		fmt.Println("index:", i, "value:", v)
+	}
+	b := a[0:3]
+	b[1] = "a"
+	fmt.Println(a, b)
+}
+
+func Pmap() {
+	a := make(map[int]string)
+	b := map[int]string{}
+	var c map[int]string
+	fmt.Println(a, b, c)
+}

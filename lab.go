@@ -3,12 +3,16 @@ package main
 import (
 	"os"
 
-	"github.com/arlsclu7/golab/fss"
+	"github.com/arlsclu7/golab/types"
 )
 
 func main() {
 	// fss.F10()
-	fss.F20()
+	// fss.F20()
+	// types.Pbase()
+	// types.Parray()
+	types.Pslice()
+	// types.Pmap()
 	// methods.M1()
 	os.Exit(0)
 

@@ -1,5 +1,9 @@
 package types
 
+import (
+	"fmt"
+)
+
 //B bbb
 var B bool = true
 
@@ -40,4 +44,33 @@ func Base() Rst {
 		R3:  []int{1, 2, 3},
 		R7:  '中'}
 	return x
+}
+
+func Pbase() {
+	type t1 struct {
+		name string
+		age  int
+	}
+	a := new(int)
+	fmt.Println("a", a)
+	fmt.Println("&a", &a)
+	fmt.Println("*a", *a)
+	aa := make(map[int]string)
+	fmt.Println("aa", aa)
+	fmt.Println("&aa", aa)
+	bb := 10
+	fmt.Println("bb", bb)
+	fmt.Println("&bb", &bb)
+	cc := make([]int, 5)
+	fmt.Println("cc", cc)
+	fmt.Println("&cc", &cc)
+	dd := t1{
+		name: "Tom",
+		age:  18,
+	}
+	fmt.Println("dd", dd)
+	fmt.Println("&dd", &dd)
+	b, c, d := a, a, a
+	*a = 10
+	fmt.Println(a, b, c, d, *a, *b, *c, *d, &b)
 }
