@@ -2,49 +2,44 @@
 
 ## 图示
 ```
-----|---|-----|-----------|
-  ta|   |     |           |
-----|   |     |           |
-  a | tv|   v | key1|key2 |
-    |   |     |    引用    |
-    |   |     |           |
-----|---|-----|-----------|
-```
-## 定义
-```
-key                             变量名,引用即是变量别名
-type@v = type of value          值类型|      与v共同
-v = value                       值|         与tv共同
-type@a = type of address        反应a对应的tv 
-a = address                     系统定义
 
-type@v,v  可以存  type@a, a
-···
-值类型：普通的 保存的是 实际值
-···
-···
-引用类型：
-指针变量 保存的是address
-map/slice/channel/struct  保存的同指针 ，只不过赋了个别名  b = *a,并返回b
-····
+---[type]-----[value]------[key]-------
+-------------[address]-----------------
 
-根据 tv+v的组合 形成了各类结构
-  1.普通
-  2.指针
 
 ```
 ## eg
 ```
-0xc101 uint 8  a
-0xc102 string "hello"  b
-0xc103 []int []{1,2,3} c 
-0xc104 *uint 0xc101 d
+标识        |类型       |        |说明
+------------|-----------|-----------|-----------
+address    |系统定义|
+type       |值类型  |      说明value的类型
+value      |值     |     
+key        |变量名  |     key = key（普通）| key = *_(引用类型)
 
-此时   d = *uint8 0xc101
-      &d = **uint 01c104
+eg.
+*int
+0xc1||*int 0xc2 a
+0xc2||int 10 ''
 
+slice：
+a = *_
+0xc3||*int    0xc4   a
+0xc4||*ints  0xc5,0xc6
+0xc5||int 10
+0xc6||int 12
 
+map
+a = *_
+0xc3||*int    0xc4   a
+0xc4||*ints  0xc5,0xc6
+0xc5||int 10
+0xc6||int 12
+
+0xc7|| int 13 
 ```
+
+## 代码
 ```go
 type  value  key
 address
