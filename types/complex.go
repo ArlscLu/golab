@@ -135,6 +135,7 @@ func Parray() {
 }
 
 func Pslice() {
+
 	a := []string{"h", "e", "l", "l", "o"}
 	a = append(a, "!")
 	for i, v := range a {
@@ -142,7 +143,10 @@ func Pslice() {
 	}
 	b := a[0:3]
 	b[1] = "a"
-	fmt.Println(a, b)
+	c := make([]int, 5)
+	d := c[1:4]
+	d[0] = 2
+	fmt.Println(a, b, c, d)
 }
 
 func Pmap() {
@@ -150,4 +154,38 @@ func Pmap() {
 	b := map[int]string{}
 	var c map[int]string
 	fmt.Println(a, b, c)
+}
+
+func Ptype() {
+	type person struct {
+		Id       uint8
+		Name     string
+		Isfemale bool
+		Expmonth []int
+		Next     *person
+		NextId   *uint8
+		NextName *string
+	}
+	marry := person{
+		Id:       2,
+		Name:     "marry",
+		Isfemale: true,
+		Expmonth: []int{4, 5, 6},
+		Next:     nil,
+	}
+	jack := person{
+		Id:       1,
+		Name:     "jack",
+		Isfemale: false,
+		Expmonth: []int{1, 2, 3},
+		Next:     &marry,
+		NextId:   &marry.Id,
+		NextName: &(marry.Name),
+	}
+	// fmt.Println(marry)
+	// fmt.Println(&marry)
+	// fmt.Println(*&marry)
+	fmt.Println(jack)
+	// fmt.Println(&jack)
+
 }
