@@ -45,6 +45,35 @@ map/slice/channel/struct  保存的同指针 ，只不过赋了个别名  b = *a
 
 
 ```
+```go
+type  value  key
+address
+
+switch(type)
+case *int :
+  *int  0xc102412   a
+  0xc222222
+  other:
+  int 10 aa
+  0xc102412
+
+case *map[int]string :
+  *map[int]string    0x111111  c = *(0x111111)
+  0x2222222
+  other:
+  map[int]string  map[int]string{1,2,3,4}  cc
+  0x111111
+
+case []int :
+  *[]int  0x3333333  e = *(0x3333333)
+  0x4444444
+  other:
+  [...]int  [3]int{6,7,8}    ee
+  0x3333333
+
+
+````
+
 
 
 
