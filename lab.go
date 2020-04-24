@@ -11,6 +11,7 @@ func main() {
 	// fss.F20()
 	// types.Pbase()
 	// types.Parray()
+	// types.Pmap()
 	types.Ptype()
 	// types.Pmap()
 	// methods.M1()

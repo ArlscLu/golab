@@ -153,7 +153,13 @@ func Pmap() {
 	a := make(map[int]string)
 	b := map[int]string{}
 	var c map[int]string
-	fmt.Println(a, b, c)
+	fmt.Println(a, b, &c)
+	d := new(int)
+	if *d == 0 {
+		println(123)
+	}
+	*d = 100
+	fmt.Printf("%T%T\n", c, *d)
 }
 
 func Ptype() {
