@@ -55,3 +55,19 @@ func F13() []int {
 	}
 	return a
 }
+
+func reverse(a []int) []int {
+	for i, j := 0, len(a)-1; i < j; i, j = i+1, j-1 {
+		if i == j {
+			continue
+		}
+		a[i], a[j] = a[j], a[i]
+	}
+	return a
+}
+
+func Treverse() {
+	a := []int{1, 2, 3, 4, 5, 6}
+	b := reverse(a)
+	fmt.Println(b)
+}

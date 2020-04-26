@@ -137,7 +137,13 @@ func Parray() {
 func Pslice() {
 
 	a := []string{"h", "e", "l", "l", "o"}
-	a = append(a, "!")
+	// a = append(a, "!")
+	fmt.Println(&a)
+	aa := a[0:1]
+	fmt.Println(&aa)
+	if &a == &aa {
+		println("地址相同")
+	}
 	for i, v := range a {
 		fmt.Println("index:", i, "value:", v)
 	}
@@ -151,15 +157,21 @@ func Pslice() {
 
 func Pmap() {
 	a := make(map[int]string)
-	b := map[int]string{}
+	// b := map[int]string{}
 	var c map[int]string
-	fmt.Println(a, b, &c)
-	d := new(int)
-	if *d == 0 {
-		println(123)
+	var b *int
+	// d := new(int)
+	if a != nil {
+		println("&a is not nil")
+		println(&a)
 	}
-	*d = 100
-	fmt.Printf("%T%T\n", c, *d)
+	if b == nil {
+		println("b is nil")
+	}
+	if c == nil {
+		println("c is nil")
+	}
+
 }
 
 func Ptype() {
