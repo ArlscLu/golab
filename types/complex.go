@@ -160,16 +160,29 @@ func Pmap() {
 	// b := map[int]string{}
 	var c map[int]string
 	var b *int
-	// d := new(int)
+	a = map[int]string{
+		1: "bob",
+		2: "mary",
+	}
 	if a != nil {
 		println("&a is not nil")
 		println(&a)
+		println(a)
+		if len(a) == 0 {
+			println("长度为0")
+		}
 	}
 	if b == nil {
 		println("b is nil")
 	}
 	if c == nil {
 		println("c is nil")
+	}
+	key := 111
+	name, ok := a[key]
+	fmt.Println(name, ok)
+	if !ok {
+		println("不存在", key)
 	}
 
 }
