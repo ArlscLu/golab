@@ -220,3 +220,89 @@ func Ptype() {
 	// fmt.Println(&jack)
 
 }
+
+//Pnil  nil类型tes
+func Pnil() {
+	var a *int
+	var b []int
+	c := make([]int, 5)
+	fmt.Println(a)
+	if b == nil {
+		fmt.Println(b)
+		fmt.Println("b is nil ")
+	}
+
+	d := c
+	d[1] = 10
+	d = []int{1, 2, 4, 4, 4}
+	fmt.Println(c, len(c), cap(c))
+	fmt.Println(d, len(d), cap(d))
+}
+
+//Pslice2 slice的作用
+func Pslice2() {
+	a := "helloworld"
+	b := "哈罗沃德xxx"
+	// c := '哈罗沃德'
+	aa := []int{}
+	bb := []rune{}
+	aaa := []int{}
+	bbb := []rune{}
+	ccc := []rune("哈罗沃德xxx")
+	ddd := []byte(a)
+	for k, v := range a {
+		aa = append(aa, k)
+		bb = append(bb, v)
+	}
+	for k, v := range b {
+		aaa = append(aaa, k)
+		bbb = append(bbb, v)
+	}
+	z := "z"
+	fmt.Println(a, b, aa, z, ccc, ddd)
+}
+
+//Pall 测试数据类型使用
+/**
+可为nil  说明存的值为地址
+包括了
+point,map,slice,channel,func,interface (only)
+*/
+func Pall() {
+	var a *int
+	if a == nil {
+		println("a is nil")
+	}
+	var b []int
+	if b == nil {
+		println("b is nil")
+	}
+	var c chan int
+	if c == nil {
+		println("c is nil")
+	}
+	var d func()
+	if d == nil {
+		println("d is nil")
+	}
+	var e error
+	if e == nil {
+		println("e is nil")
+	}
+	var f map[int]string
+	if f == nil {
+		println("f is nil")
+	}
+	var g int
+	if g == 0 {
+		println("g is 0")
+	}
+	type x struct {
+		a int
+	}
+	h := x{a: 10}
+	fmt.Println(h)
+	// b = []int{1, 2, 3, 4, 5}
+	z := "z"
+	fmt.Println(z)
+}
