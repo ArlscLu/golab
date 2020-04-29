@@ -267,6 +267,10 @@ func Pslice2() {
 可为nil  说明存的值为地址
 包括了
 point,map,slice,channel,func,interface (only)
+
+address,value  （存储）
+type，key （系统记录） 决定了怎么使用
+address  关联前两者
 */
 func Pall() {
 	var a *int
@@ -302,7 +306,9 @@ func Pall() {
 	}
 	h := x{a: 10}
 	fmt.Println(h)
-	// b = []int{1, 2, 3, 4, 5}
+	b = []int{1, 2, 3, 4, 5}
+	bb := b[2:3]
+	bb[0] = 111
 	z := "z"
-	fmt.Println(z)
+	fmt.Println(bb, z)
 }
