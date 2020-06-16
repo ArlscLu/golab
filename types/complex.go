@@ -2,6 +2,8 @@ package types
 
 import (
 	"fmt"
+	"log"
+	"os"
 
 	"github.com/arlsclu7/golab/helper"
 )
@@ -311,4 +313,41 @@ func Pall() {
 	bb[0] = 111
 	z := "z"
 	fmt.Println(bb, z)
+}
+
+func Pss() {
+	var a int
+	var b *int
+	var c = make([]int, 5)
+	var d []int = nil
+	var e []string = nil
+
+	fmt.Println(a, b, c, d)
+	if b == nil {
+		fmt.Print("b is nil")
+	}
+	fmt.Println()
+	if d == nil {
+		fmt.Print("d is nil")
+	}
+	fmt.Println()
+	if e == nil {
+		fmt.Print("e is nil")
+	}
+}
+
+func Guess() {
+	stat, err := os.Lstat("go.sum")
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(stat)
+	f, err := os.OpenFile("go.sum", os.O_RDONLY, 0755)
+	if err != nil {
+		log.Fatal(err)
+	}
+	rst, err := f.Read([]byte{1, 19})
+	fmt.Println(rst)
+	fmt.Println(f.Name())
+
 }

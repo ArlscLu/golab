@@ -46,7 +46,7 @@ func Query(ctx context.Context, id int64) {
 	log.Println("achiev_city_name=", achiev_city_name)
 }
 func main() {
-	types.Pall()
+	types.Guess()
 	os.Exit(0)
 	// db, err := sql.Open("mysql", "root:111111@127.0.0.1/dbname")
 	// fmt.Println(db)
