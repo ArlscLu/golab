@@ -1,4 +1,4 @@
-package main
+package main1
 
 import (
 	"context"
@@ -46,8 +46,10 @@ func Query(ctx context.Context, id int64) {
 	log.Println("achiev_city_name=", achiev_city_name)
 }
 func main() {
-	literal.Show()
-	literal.ShowString()
+	// literal.ShowInteger()
+	// literal.ShowString()
+	// literal.ShowArray()
+	literal.ShowStruct()
 	os.Exit(0)
 	// types.Guess()
 	// os.Exit(0)
