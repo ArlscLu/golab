@@ -9,7 +9,7 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/arlsclu7/golab/types"
+	"github.com/arlsclu7/golab/literal"
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -46,8 +46,11 @@ func Query(ctx context.Context, id int64) {
 	log.Println("achiev_city_name=", achiev_city_name)
 }
 func main() {
-	types.Guess()
+	literal.Show()
+	literal.ShowString()
 	os.Exit(0)
+	// types.Guess()
+	// os.Exit(0)
 	// db, err := sql.Open("mysql", "root:111111@127.0.0.1/dbname")
 	// fmt.Println(db)
 	os.Setenv("DSN", "root:111111@/lab")

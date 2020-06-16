@@ -337,6 +337,12 @@ func Pss() {
 }
 
 func Guess() {
+	a := "go语言"
+	for k, v := range a {
+		fmt.Printf("%U,%x", k, v)
+	}
+	os.Exit(1)
+	fmt.Println("%u", a)
 	stat, err := os.Lstat("go.sum")
 	if err != nil {
 		log.Fatal(err)
