@@ -13,13 +13,34 @@ import (
 
 	"github.com/arlsclu7/golab/block"
 	"github.com/arlsclu7/golab/db"
+	applog "github.com/arlsclu7/golab/log"
 	"github.com/arlsclu7/golab/types"
 	_ "github.com/go-sql-driver/mysql"
 )
 
 var pool *sql.DB // Database connection pool.
 
+func chans() {
+	donechan := make(chan string)
+	go func() {
+		donechan <- "i am done"
+	}()
+	<-donechan
+}
 func main() {
+	os.Stdout.Write([]byte{1, 2, 3})
+	applog := applog.Applog()
+	applog.Println("aaa")
+	c, err := os.Create("/usr/local/var/log/goslab/a.log")
+	if err != nil {
+		applog.Fatalln(err)
+	}
+	applog.Fatal(c)
+	os.Exit(1)
+	// chans()
+	os.Exit(12)
+	block.MyBlock()
+	os.Exit(111)
 	db.Show()
 	os.Exit(1)
 	// os.Stdout.Write([]byte{1, 2, 3})
@@ -54,10 +75,9 @@ func main() {
 	if *id == 0 {
 		log.Fatal("missing person ID")
 	}
-	var err error
 
 	// Opening a driver typically will not attempt to connect to the database.
-	pool, err = sql.Open("mysql", *dsn)
+	pool, err := sql.Open("mysql", *dsn)
 	if err != nil {
 		// This will not be a connection error, but a DSN parse error or
 		// another initialization error.
