@@ -28,6 +28,15 @@ func chans() {
 	<-donechan
 }
 func main() {
+	f, err := os.Lstat("go.mod")
+	fmt.Println(f.Mode().Perm())
+	newfile := "a.log"
+	_, err = os.OpenFile(newfile, os.O_CREATE, 0755)
+	if err != nil {
+		fmt.Println(err)
+	}
+	gn, err := os.Lstat(newfile)
+	fmt.Println(gn.Mode().Perm())
 	os.Stdout.Write([]byte{1, 2, 3})
 	applog := applog.Applog()
 	applog.Println("aaa")
