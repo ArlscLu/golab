@@ -15,3 +15,10 @@ func Applog() *log.Logger {
 	logger := log.New(f, "[golog]...", log.Ldate|log.Ltime)
 	return logger
 }
+
+type Sn struct {
+}
+
+func (sn Sn) String() string {
+	return `ssss`
+}
