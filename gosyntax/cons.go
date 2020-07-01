@@ -11,8 +11,8 @@ const (
 )
 
 const (
-	d0 = 1 << (iota + 1)
-	d1 = 1 << (iota + 1)
+	d0 uint8 = 1 << (iota + 1)
+	d1 uint8 = 1 << (iota + 1)
 )
 
 func Prin() {
