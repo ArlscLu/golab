@@ -3,34 +3,50 @@ package main
 import (
 	"fmt"
 	"os"
+	"time"
 
-	"github.com/gin-gonic/gin"
+	"github.com/arlsclu7/golab/gosyntax"
 )
 
 func main() {
-	one := make(chan int)
-	two := make(chan int)
-
-	go func() {
-		one <- 100
-	}()
-
-	go func() {
-		v := <-one
-		two <- v
-	}()
-
-	fmt.Println(<-two)
+	gosyntax.Pslice2()
 	os.Exit(1)
+	var user = os.Getenv("USER_")
+	go func() {
+		defer func() {
+			fmt.Println(" i am defer in routine")
+		}()
+		if user == "" {
+			panic("no user env")
+		}
+	}()
+	time.Sleep(10 * time.Second)
+	fmt.Println("i am from main")
 
-	r := gin.Default()
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"Blog":   "www.flysnow.org",
-			"wechat": "flysnow_org",
-		})
-	})
-	r.Run(":8080")
+	// gosyntax.Ppanic()
+	// one := make(chan int)
+	// two := make(chan int)
+
+	// go func() {
+	// 	one <- 100
+	// }()
+
+	// go func() {
+	// 	v := <-one
+	// 	two <- v
+	// }()
+
+	// fmt.Println(<-two)
+	// os.Exit(1)
+
+	// r := gin.Default()
+	// r.GET("/", func(c *gin.Context) {
+	// 	c.JSON(200, gin.H{
+	// 		"Blog":   "www.flysnow.org",
+	// 		"wechat": "flysnow_org",
+	// 	})
+	// })
+	// r.Run(":8080")
 	// fmt.Println(3 << 5)
 	// gosyntax.Pstruct()
 	// os.Exit(6)

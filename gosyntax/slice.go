@@ -51,3 +51,15 @@ func Pslide() {
 	}
 	fmt.Println("\nddd")
 }
+
+func Pslice2() {
+	var s uint
+	a := [10]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	b := a[0:5]
+	c := b[1:3]
+	c[0] = 20
+	d := make([]byte, 5, 10)
+	e := new([]int)
+	fmt.Println(c, b, a, d, e, &e, *e, s)
+	fmt.Printf("%T,%T,%T,%T \n ", e, &e, *e, s)
+}
