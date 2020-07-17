@@ -3,25 +3,19 @@ package main
 import (
 	"fmt"
 	"os"
-	"time"
 
 	"github.com/arlsclu7/golab/gosyntax"
 )
 
 func main() {
-	gosyntax.Pslice2()
-	os.Exit(1)
-	var user = os.Getenv("USER_")
-	go func() {
-		defer func() {
-			fmt.Println(" i am defer in routine")
-		}()
-		if user == "" {
-			panic("no user env")
-		}
-	}()
-	time.Sleep(10 * time.Second)
-	fmt.Println("i am from main")
+	gosyntax.Pmethod()
+	os.Exit(22)
+	st := gosyntax.SomeTest{
+		Name: "Tom",
+		Age:  11,
+	}
+	gosyntax.NeedTester(st)
+	os.Exit(12)
 
 	// gosyntax.Ppanic()
 	// one := make(chan int)
