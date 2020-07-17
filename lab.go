@@ -17,6 +17,11 @@ func main() {
 	gosyntax.NeedTester(st)
 	os.Exit(12)
 
+	// gosyntax.Pstruct()
+	// fmt.Println(gschild.Ta)
+	// one := make(chan int)
+	// two := make(chan int)
+
 	// gosyntax.Ppanic()
 	// one := make(chan int)
 	// two := make(chan int)

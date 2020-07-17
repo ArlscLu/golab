@@ -12,8 +12,12 @@ func (p Point) Distance() int {
 	return p.x - p.y
 }
 
-func (pa Path) Distance() int {
-	return len(pa)
+func (pa Path) Distance() []int {
+	s := []int{}
+	for i := range pa {
+		s = append(s, pa[i].Distance())
+	}
+	return s
 }
 
 var pa1 = Path{
