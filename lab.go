@@ -8,6 +8,8 @@ import (
 )
 
 func main() {
+	fmt.Println(gosyntax.Ppmethod())
+	os.Exit(11)
 	gosyntax.Pmethod()
 	os.Exit(22)
 	st := gosyntax.SomeTest{
