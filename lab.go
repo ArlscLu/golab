@@ -2,14 +2,25 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
+	"log"
 	"os"
+	"strings"
 
 	"github.com/arlsclu7/golab/gosyntax"
+	"github.com/arlsclu7/golab/gosyntax/at"
 )
 
 func main() {
-	fmt.Println(gosyntax.Ppmethod())
-	os.Exit(11)
+	at.Show()
+	os.Exit(1)
+	r := strings.NewReader("hello world大中国")
+	b, err := ioutil.ReadAll(r)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(b)
+	fmt.Printf("%s", b)
 	gosyntax.Pmethod()
 	os.Exit(22)
 	st := gosyntax.SomeTest{

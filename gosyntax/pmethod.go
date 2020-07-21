@@ -2,14 +2,14 @@ package gosyntax
 
 /*
 	变量提升相关
-	S包含T时,      s,*s 包含t    *s包含*t
-	S包含*T时，    s,*s 包含天，*t的所有方法
+	S包含T时,      s,*s 包含t    *s同时包含*t
+	S包含*T时，    s,*s 包含t，*t的所有方法
 
 	语法糖的存在   t.method  转换为&t.method()
 */
 
 type base struct {
-	pagesize uint8
+	pagesize uint8 `a"xxx"`
 }
 
 func (b base) getValue() uint8 {
@@ -28,8 +28,8 @@ type extend struct {
 	*base
 }
 
-func Ppmethod() []interface{} {
-	// var r []interface{}
+func Ppmethod() ([]interface{}, interface{}) {
+	var t interface{}
 	r := []interface{}{
 		1,
 		2,
@@ -41,7 +41,7 @@ func Ppmethod() []interface{} {
 		"title": 19,
 		"name":  11,
 	})
-	return r
+	return r, t
 	// fmt.Println(extend.getValue(extend{}))
 	// ee1 := extend{}
 	// extend.changeValue(ee1)
