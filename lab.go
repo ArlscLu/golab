@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"io/ioutil"
 	"log"
 	"os"
@@ -12,6 +13,30 @@ import (
 )
 
 func main() {
+	// gosyntax.ShowList()
+	// os.Exit(2)
+	// at.ShowRw()
+	// at.ShowRw123()
+	at.ShowMemory()
+	os.Exit(5)
+	at.ShowMtest2()
+	os.Exit(4)
+	at.Std()
+	os.Exit(3)
+	str := `
+	begin
+	*************
+				**********
+
+	**********
+
+	*********************  **********
+				*******
+	
+	`
+	io.WriteString(os.Stdout, str)
+	at.ShowRw321()
+	os.Exit(2)
 	at.Show()
 	os.Exit(1)
 	r := strings.NewReader("hello world大中国")

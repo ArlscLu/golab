@@ -1,6 +1,9 @@
 package at
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 /*
 
@@ -62,6 +65,8 @@ type mt map[uint8]string
 
 //ChannelType
 type ct <-chan int
+type ct2 chan<- int
+type ct3 chan int
 
 var a [3]int
 
@@ -71,7 +76,9 @@ var c it
 
 var d = mt{}
 
-var e = make(ct, 1)
+var e = make(ct, 3)
+var e2 = make(ct2, 3)
+var e3 = make(ct3, 3)
 
 var ee = make([]int, 4, 6)
 
@@ -96,10 +103,39 @@ func changeEE(s []int) {
 	s[3] += 11
 }
 
+// type SomeTest struct {
+// 	Name string
+// 	Age  byte
+// }
+
 func Show() {
+	e2 <- 1
+	e2 <- 2
+	e2 <- 3
+	e3 <- 1
+	e3 <- 2
+	e3 <- 3
+
+	close(e2)
+	_ = <-e3
+	fmt.Println(len(e3))
+
+	_ = <-e3
+	fmt.Println(len(e3))
+	go func() {
+		if len(e3) == 1 {
+			fmt.Println("it is my turn")
+		}
+	}()
+	// _ = <-e3
+
+	fmt.Println(len(e3))
+	fmt.Println("************")
 	fmt.Println(ee)
 	// fmt.Println(changeEE(ex))
 	changeEE(ee)
 	fmt.Println(1)
-	fmt.Println(c, d, e, eee, ee)
+	fmt.Println(c, d, e, ee, eee, ee)
+	time.Sleep(10)
+
 }
