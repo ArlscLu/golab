@@ -12,6 +12,7 @@ func ShowMemory() {
 	sl2 := &[]int{7, 8, 9}
 	sl3 := [3]int{10, 11, 12}
 	sl4 := &[3]int{13, 14, 15}
+	sl5 := st{"tom"}
 
 	/*
 		qat2_    *at    &[1 2 3]
@@ -31,6 +32,8 @@ func ShowMemory() {
 	fmt.Println(`sl3@array的情况    `, sl3, &sl3)
 	newline()
 	fmt.Println(`sl4@array的情况#指针#     `, sl4, &sl4, *sl4)
+	newline()
+	fmt.Println(`sl5@struct的情况     `, sl5, &sl5, *&sl5)
 }
 func newline() {
 	fmt.Println()

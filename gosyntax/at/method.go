@@ -82,10 +82,16 @@ var s2 *ar
 var s3 *st2
 
 /*
-	任意 *addr
+##[key|type|addr]
+
+addr in (addr, value)
+
+任意 *addr
 
 
 	typeofaddr = *addr
+
+
 
 	if(*addr == point) {
 		if(*add)== nil {
