@@ -10,11 +10,11 @@ import (
 	读写相关
 */
 var (
-	firstName, lastName, s string
-	i                      int
-	f                      float32
-	input                  = "56.12/5212/Go"
-	format                 = "%f/%d/%s"
+	firstName, lastName string
+	i                   int
+	f                   float32
+	input               = "56.12/5212/Go"
+	format              = "%f/%d/%s"
 )
 
 func ShowRw() {

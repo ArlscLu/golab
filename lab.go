@@ -10,6 +10,7 @@ import (
 
 	"github.com/arlsclu7/golab/gosyntax"
 	"github.com/arlsclu7/golab/gosyntax/at"
+	"github.com/arlsclu7/golab/gosyntax/memory"
 )
 
 func main() {
@@ -17,6 +18,15 @@ func main() {
 	// os.Exit(2)
 	// at.ShowRw()
 	// at.ShowRw123()
+	// at.Showm2()
+	// os.Exit(6)
+	for i, v := range memory.Debug() {
+		fmt.Println(v)
+		if i%2 != 0 {
+			fmt.Println("       ")
+		}
+	}
+	os.Exit(6)
 	at.ShowMemory()
 	os.Exit(5)
 	at.ShowMtest2()
