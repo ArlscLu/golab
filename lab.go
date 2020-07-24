@@ -21,10 +21,13 @@ func main() {
 	// at.Showm2()
 	// os.Exit(6)
 	for i, v := range memory.Debug() {
-		fmt.Println(v)
-		if i%2 != 0 {
-			fmt.Println("       ")
+		if v == nil {
+			continue
 		}
+		fmt.Println(i, v)
+		// if i%2 != 0 {
+		// 	fmt.Println("       ")
+		// }
 	}
 	os.Exit(6)
 	at.ShowMemory()
