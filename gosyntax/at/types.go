@@ -68,7 +68,11 @@ type ct <-chan int
 type ct2 chan<- int
 type ct3 chan int
 
+type typesl []int
+
 var a [3]int
+
+var slice1 = []int{1, 2, 3}
 
 var b []string
 
@@ -138,4 +142,79 @@ func Show() {
 	fmt.Println(c, d, e, ee, eee, ee)
 	time.Sleep(10)
 
+}
+
+type stcombine struct {
+	name string
+	info []int
+}
+
+var stc1 = stcombine{
+	name: "tom",
+	info: []int{2, 3},
+}
+
+//pointer  =addr + type
+func ShowTypes() {
+	// return fmt.Sprintln(111)
+	i := 5
+	var pi *int
+	pi = &i
+	fmt.Println(pi, &i)
+	if pi == &i {
+		fmt.Println("是相等的")
+	}
+	pi2 := pi
+	*pi = 100
+	fmt.Println(*pi, *&i, *pi2)
+	fmt.Println(stc1)
+	changestru(stc1)
+	fmt.Println(stc1)
+}
+
+func changestru(s stcombine) {
+	s.name = "jack"
+	// s.info[1] = 333
+	s.info = append(s.info, []int{7, 8, 9}...)
+	// s.info = []int{}
+	// change := make([]int, 2, 2)
+	// s.info = change
+	// fmt.Printf("s.info类型%T    \n change类型%T \n", s.info, change)
+	// // s.info = []int{11, 22}
+
+}
+
+//数据类型信息   用于  编译过程中
+//类型决定了怎么使用地址
+//变量的类型   决定了怎么使用存储的信息
+//数据类型 -> 决定了怎么使用内存地址
+/*
+	编译阶段 变量key   addr_to_get(unknown now)   type
+	编译器知道  根据type决定怎么使用addr
+*/
+
+var OriginSlice = []int{1, 2, 3}
+
+func NotChangeV(x []int) {
+	// var a = [4]int{1, 2, 3, 4}
+	// var pi *int
+	// someint := 10
+	// pi = &someint
+
+	// x = []int{4, 5, 6} //赋值
+	x[1] = x[1] * 10
+	b := x
+	// b = []int{4, 5, 6, 7, 9}
+	b = append(b, 5)
+	// xx = append(xx, 5)
+	// b = make([]int, 3, 3)
+	// b[2] = 100
+	// *pi = 20
+	fmt.Println(x, b, &b, OriginSlice)
+	// fmt.Println(pi, someint, *pi)
+}
+
+func ChangeV(x *[]int) {
+	*x = append(*x, 300)
+	fmt.Println(x, *x, OriginSlice)
 }
