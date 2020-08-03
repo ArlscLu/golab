@@ -11,6 +11,7 @@ import (
 	"github.com/arlsclu7/golab/gosyntax"
 	"github.com/arlsclu7/golab/gosyntax/at"
 	"github.com/arlsclu7/golab/gosyntax/at2"
+	"github.com/arlsclu7/golab/gosyntax/fakepkg"
 	"github.com/arlsclu7/golab/gosyntax/memory"
 )
 
@@ -21,7 +22,8 @@ func main() {
 	// at.ShowRw123()
 	// at.Showm2()
 	// os.Exit(6)
-
+	fakepkg.Enterfstring()
+	os.Exit(1)
 	at.NotChangeV(at.OriginSlice)
 	at.ChangeV(&at.OriginSlice)
 	os.Exit(9)
