@@ -6,6 +6,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/arlsclu7/golab/std"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
@@ -22,6 +23,13 @@ const (
 
 func main() {
 	start := time.Now()
+	std.Runflag()
+	end := time.Now()
+	d := end.Sub(start)
+	fmt.Println("用时", d.Milliseconds(), "毫秒")
+	fmt.Println("用时", d.Microseconds(), "微秒")
+	os.Exit(1)
+
 	a := 10
 	if a > 5 {
 		fmt.Println("bigger than 5")
