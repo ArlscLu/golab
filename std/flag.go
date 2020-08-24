@@ -58,10 +58,35 @@ func Runflag() {
 	//e3
 }
 
-func init() {
+var (
+	averageAge int = 18
+)
+var age int
 
-	flag.StringVar(&gopherType, "gopher_type", defaultGopher, usage)
-	flag.StringVar(&gopherType, "g", defaultGopher, usage+" (shorthand)")
+type birthyear struct {
+}
 
-	flag.Var(&intervalFlag, "delta", "comma-separated list of intervals to use between events")
+func (b birthyear) String() string {
+	return "hello"
+}
+
+func (b birthyear) Set(s string) error {
+	return nil
+}
+func Runflag() {
+	var ip *int
+	ip = flag.Int("ip", 127, "address of ip")
+
+	flag.IntVar(&age, "age", 11, "help message for name")
+
+	fmt.Println(*ip, age)
+	var b birthyear
+	flag.Var(&b, "birthyear", "help msg for birthyear")
+
+	flag.Parse()
+	if age > averageAge {
+		log.Println("you are older than average")
+	} else {
+		log.Println("you are older than younger")
+	}
 }

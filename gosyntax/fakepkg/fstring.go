@@ -24,9 +24,6 @@ func Enterfstring() {
 		panic("eror")
 	}
 	defer func() {
-		if ok := recover(); ok {
-			fmt.Println("I am recoverd", ok)
-		}
 	}()
 }
 
