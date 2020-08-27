@@ -4,6 +4,7 @@ import (
 	"errors"
 	"flag"
 	"fmt"
+	"log"
 	"strings"
 	"time"
 )
@@ -41,22 +42,6 @@ const (
 	defaultGopher = "pocket"
 	usage         = "the variety of gopher"
 )
-
-func Runflag() {
-	//e1
-	var species = flag.String("species", "gopher", "the species we are studying")
-
-	//e2
-
-	// flag.Parse()
-	if flag.Parsed() {
-		fmt.Println(`111`)
-	}
-	fmt.Println("total args", flag.NArg()-1)
-	fmt.Println(species, flag.Args())
-
-	//e3
-}
 
 var (
 	averageAge int = 18

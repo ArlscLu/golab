@@ -1,6 +1,10 @@
 package main
 
 import (
+	"os"
+
+	"github.com/arlsclu7/golab/std"
+	"github.com/arlsclu7/golab/types"
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
@@ -17,6 +21,18 @@ const (
 )
 
 func main() {
+	std.RunFile()
+	os.Exit(1)
+	std.RunOs()
+	os.Exit(1)
+	std.RunLog()
+	os.Exit(3)
+	std.RunWg()
+	os.Exit(2)
+	types.RunChan()
+	os.Exit(2)
+	std.RunLog()
+	os.Exit(1)
 	r := gin.Default()
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
@@ -26,6 +42,8 @@ func main() {
 	r.POST("/post", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "pong",
+			"code":    1,
+			"data":    "",
 		})
 	})
 	r.Run(":8080") // listen and serve on 0.0.0.0:8080
