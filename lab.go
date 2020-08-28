@@ -3,6 +3,7 @@ package main
 import (
 	"os"
 
+	"github.com/arlsclu7/golab/db"
 	"github.com/arlsclu7/golab/std"
 	"github.com/arlsclu7/golab/types"
 	"github.com/gin-gonic/gin"
@@ -21,6 +22,12 @@ const (
 )
 
 func main() {
+	db.RunXorm()
+	os.Exit(1)
+	std.Log()
+	os.Exit(1)
+	std.ExecFilePkg()
+	os.Exit(7)
 	std.RunFile()
 	os.Exit(1)
 	std.RunOs()
