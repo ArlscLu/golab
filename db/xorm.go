@@ -53,7 +53,7 @@ func RunXorm() {
 		s.Panicln("发生了插入错误", err)
 	}
 	s.Printf("insert %d rows", affected)
-	has, _ := engine.ID(1).Get(user1)
+	has, _ := engine.ID(5).Get(&User{})
 	if has {
 		fmt.Printf("user1: %v\n", user1)
 	}
