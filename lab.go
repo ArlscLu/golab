@@ -22,6 +22,8 @@ const (
 )
 
 func main() {
+	std.Runst()
+	os.Exit(1)
 	db.RunXorm()
 	os.Exit(1)
 	std.Log()
