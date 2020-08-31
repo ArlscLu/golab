@@ -157,7 +157,7 @@ func ExecFilePkg() {
 var now time.Time = time.Now()
 
 //one day one logfile
-func todayFile() *os.File {
+func TodayFile() *os.File {
 	filename := fmt.Sprintf("%d-%d-%d", now.Year(), now.Month(), now.Day())
 	filename += ".log"
 	f, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0777)
@@ -168,7 +168,7 @@ func todayFile() *os.File {
 }
 
 func Log() {
-	f := todayFile()
+	f := TodayFile()
 	// l := log.New(f, "[user-service] ", log.LstdFlags)
 	// lrus := logrus.New()
 	// lrus.SetOutput(f)
