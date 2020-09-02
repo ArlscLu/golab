@@ -19,6 +19,12 @@ type User struct {
 	Created time.Time `xorm:"created"`
 	Updated time.Time `xorm:"updated"`
 }
+type Police struct {
+	Id   int64
+	Name string
+	Age  int
+	Uid  int
+}
 
 var l *logrus.Logger
 
@@ -35,10 +41,16 @@ func RunXorm() {
 	s.SetOutput(std.TodayFile())
 	s.SetLevel(logrus.DebugLevel)
 	engine, err := xorm.NewEngine("mysql", "root:123@(127.0.0.1)/test?charset=utf8&parseTime=True&loc=Local")
+	engine.ShowSQL(true)
 	if err != nil {
 		s.Info(11)
 	}
 	defer engine.Close()
+	err = engine.Sync2(&Police{})
+	if err != nil {
+		s.Panicln(err)
+	}
+
 	// err = engine.Sync2(new(User))
 	s.Infof("%+v", engine.Logger().Level)
 	if err != nil {
@@ -53,8 +65,25 @@ func RunXorm() {
 		s.Panicln("发生了插入错误", err)
 	}
 	s.Printf("insert %d rows", affected)
-	has, _ := engine.ID(5).Get(&User{})
-	if has {
-		fmt.Printf("user1: %v\n", user1)
+	user4 := &User{
+		Name: "Gandof",
 	}
+	has, _ := engine.Get(user4)
+	if has {
+		fmt.Printf("user4: %v\n", user4)
+	}
+}
+
+func Search(id int) *User {
+	engine, err := xorm.NewEngine("mysql", "root:123@(127.0.0.1)/test?charset=utf8&parseTime=True&loc=Local")
+	if err != nil {
+		s.Info(11)
+	}
+	defer engine.Close()
+	find := &User{}
+	has, _ := engine.ID(id).Get(find)
+	if has {
+		return find
+	}
+	return nil
 }

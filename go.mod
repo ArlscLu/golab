@@ -3,6 +3,7 @@ module github.com/arlsclu7/golab
 go 1.14
 
 require (
+	fyne.io/fyne v1.3.3
 	github.com/garyburd/redigo v1.6.2 // indirect
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-sql-driver/mysql v1.5.0

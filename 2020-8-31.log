@@ -53,3 +53,7 @@ time="2020-08-31T17:48:20+08:00" level=info msg=0x13b08a0
 time="2020-08-31T17:48:20+08:00" level=info msg="insert 1 rows"
 time="2020-08-31T18:01:42+08:00" level=info msg=0x13b08a0
 time="2020-08-31T18:01:42+08:00" level=info msg="insert 1 rows"
+time="2020-08-31T18:23:37+08:00" level=info msg=0x13b0890
+time="2020-08-31T18:23:37+08:00" level=info msg="insert 1 rows"
+time="2020-08-31T18:24:03+08:00" level=info msg=0x13b0890
+time="2020-08-31T18:24:03+08:00" level=info msg="insert 1 rows"
