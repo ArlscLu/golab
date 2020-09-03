@@ -45,20 +45,12 @@ func Runbase() {
 			addressLabel.Show()
 		}
 	})
-	next := widget.NewCheck("show next?", func(value bool) {
-		if !value {
-			widget.ShowPopUp(content fyne.CanvasObject, canvas fyne.Canvas)
-		} else {
-			logrus.Info(111)
-		}
-	})
 	memberTypeSelect := widget.NewSelect([]string{"junior", "senior", "admin"}, func(string) {})
 
 	setting := widget.NewForm(
 		&widget.FormItem{Text: "music", Widget: musicRadio},
 		&widget.FormItem{Text: "check", Widget: showAddressCheck},
 		&widget.FormItem{Text: "member type", Widget: memberTypeSelect},
-		&widget.FormItem{Text: "next", Widget: next},
 	)
 
 	tabs := widget.NewTabContainer(

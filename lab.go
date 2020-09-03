@@ -22,6 +22,12 @@ const (
 )
 
 func main() {
+	std.Main()
+	os.Exit(2)
+	std.ShowSlice(std.Class1)
+	os.Exit(2)
+	std.RunChan()
+	os.Exit(1)
 	db.RunXorm()
 	os.Exit(1)
 	std.Log()

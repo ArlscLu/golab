@@ -41,36 +41,21 @@ func RunXorm() {
 	s.SetOutput(std.TodayFile())
 	s.SetLevel(logrus.DebugLevel)
 	engine, err := xorm.NewEngine("mysql", "root:123@(127.0.0.1)/test?charset=utf8&parseTime=True&loc=Local")
-	engine.ShowSQL(true)
 	if err != nil {
 		s.Info(11)
 	}
 	defer engine.Close()
-	err = engine.Sync2(&Police{})
-	if err != nil {
-		s.Panicln(err)
-	}
-
-	// err = engine.Sync2(new(User))
-	s.Infof("%+v", engine.Logger().Level)
-	if err != nil {
-		s.Fatal(err)
-	}
 	user1 := &User{
-		Name: "Tom",
-		Age:  18,
-	}
-	affected, err := engine.Insert(user1)
-	if err != nil {
-		s.Panicln("发生了插入错误", err)
-	}
-	s.Printf("insert %d rows", affected)
-	user4 := &User{
 		Name: "Gandof",
 	}
-	has, _ := engine.Get(user4)
+	has, _ := engine.Get(user1)
 	if has {
-		fmt.Printf("user4: %v\n", user4)
+		fmt.Printf("user4: %v\n", user1)
+	}
+	users := make([]User, 0)
+	engine.Where("age > ? and age <=?", 6, 16).Find(&users)
+	for _, v := range users {
+		fmt.Printf("%+v\n", v)
 	}
 }
 
