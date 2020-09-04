@@ -43,6 +43,15 @@ func timeout() {
 }
 
 func Main() {
+	alpaTable := []string{"a", "b", "c", "d"}
+	for k, v := range alpaTable {
+		go func(k int, v string) {
+			k++
+			for i := 0; i < k; i++ {
+				fmt.Println(v)
+			}
+		}(k, v)
+	}
 	for i := 0; i < 10; i++ {
 		addTime <- i
 	}
@@ -56,4 +65,14 @@ func Main() {
 			fmt.Println("可以insert了")
 		}
 	}
+}
+
+func Ds() {
+	var ch = make(chan int)
+	go func() {
+		// time.Sleep(time.Second * 3)
+		ch <- 1
+	}()
+	<-ch
+	fmt.Println("end ")
 }

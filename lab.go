@@ -22,6 +22,7 @@ const (
 )
 
 func main() {
+	os.Exit(3)
 	std.Main()
 	os.Exit(2)
 	std.ShowSlice(std.Class1)
