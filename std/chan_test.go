@@ -78,6 +78,72 @@ func TestCounterWaitGroup(t *testing.T) {
 	t.Logf("counter = %d", counter)
 }
 
-func TestRoutineOrder(t *testing.T) {
+var tsand = 1
 
+var c = 1
+
+func TestRoutineOrder(t *testing.T) {
+	t.Logf("%f", 1e9)
+	a, b := 20, 30 // declare variables a and b
+	fmt.Println("a is", a, "b is", b)
+	b, c := 40, 50 // b is already declared but c is new
+	fmt.Println("b is", b, "c is", c)
+	b, c = 80, 90 // assign new values to already declared variables b and c
+	fmt.Println("changed b is", b, "c is", c)
+	var wg sync.WaitGroup
+	var mut sync.Mutex
+	counter := 0
+	for i := 0; i < 1000; i++ {
+		wg.Add(1)
+		go func() {
+			defer func() {
+				mut.Unlock()
+			}()
+			mut.Lock()
+			counter++
+			wg.Done()
+		}()
+	}
+	wg.Wait()
+	t.Logf("total count %d", counter)
+}
+
+type addsForSum struct {
+	sum    int
+	first  int
+	second int
+}
+
+func TestFor(t *testing.T) {
+	var wg sync.WaitGroup
+	var wg1 sync.WaitGroup
+	var rst = make(chan []addsForSum, 11)
+	for i := 0; i <= 10; i++ {
+		wg1.Add(1)
+		wg.Add(1)
+		go func(i int) {
+			defer func() {
+				wg.Done()
+				wg1.Done()
+			}()
+			rst <- somefor(i)
+		}(i)
+		wg1.Wait()
+	}
+	wg.Wait()
+	close(rst)
+	for v := range rst {
+		fmt.Println(v)
+	}
+}
+
+func somefor(i int) (r []addsForSum) {
+	r = make([]addsForSum, 0)
+	for x := 0; x <= i; x++ {
+		y := i - x
+		r = append(r, addsForSum{
+			i, x, y,
+		})
+	}
+	return
 }
