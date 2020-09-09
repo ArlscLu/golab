@@ -117,7 +117,8 @@ type addsForSum struct {
 func TestFor(t *testing.T) {
 	var wg sync.WaitGroup
 	var wg1 sync.WaitGroup
-	var rst = make(chan []addsForSum, 11)
+	var rst = make(chan []addsForSum, 100)
+	// defer close(rst)
 	for i := 0; i <= 10; i++ {
 		wg1.Add(1)
 		wg.Add(1)
@@ -131,8 +132,16 @@ func TestFor(t *testing.T) {
 		wg1.Wait()
 	}
 	wg.Wait()
+	// close(rst)
+	// for v := range rst {
+	// 	fmt.Println(v)
+	// }
 	close(rst)
-	for v := range rst {
+	for {
+		v, ok := <-rst
+		if !ok {
+			break
+		}
 		fmt.Println(v)
 	}
 }
