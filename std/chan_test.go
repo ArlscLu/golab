@@ -156,3 +156,7 @@ func somefor(i int) (r []addsForSum) {
 	}
 	return
 }
+
+func TestSelect(t *testing.T) {
+
+}
