@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
@@ -16,5 +18,7 @@ const (
 )
 
 func main() {
-
+	v := []int{1, 2, 3}
+	x := 10
+	fmt.Println(v, x)
 }

@@ -12,7 +12,7 @@ import (
 
 var chanSum int
 
-func TestChan1(t *testing.T) {
+func _TestChan1(t *testing.T) {
 	c1 := make(chan bool)
 	f, err := os.OpenFile("std.log", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0777)
 	l := logrus.New()
@@ -31,7 +31,7 @@ func TestChan1(t *testing.T) {
 	fmt.Println("end of file")
 }
 
-func TestChansDanger(t *testing.T) {
+func _TestChansDanger(t *testing.T) {
 	counter := 0
 	for i := 0; i < 5000; i++ {
 		go func() {
@@ -42,7 +42,7 @@ func TestChansDanger(t *testing.T) {
 	t.Logf("counter = %d", counter)
 }
 
-func TestChansDangerWithMute(t *testing.T) {
+func _TestChansDangerWithMute(t *testing.T) {
 	var mut sync.Mutex
 	counter := 0
 	for i := 0; i < 5000; i++ {
@@ -59,7 +59,7 @@ func TestChansDangerWithMute(t *testing.T) {
 }
 
 // 协程安全Demo
-func TestCounterWaitGroup(t *testing.T) {
+func _TestCounterWaitGroup(t *testing.T) {
 	var mut sync.Mutex    // 互斥锁
 	var wg sync.WaitGroup // 等待队列
 	counter := 0
@@ -82,7 +82,7 @@ var tsand = 1
 
 var c = 1
 
-func TestRoutineOrder(t *testing.T) {
+func _TestRoutineOrder(t *testing.T) {
 	t.Logf("%f", 1e9)
 	a, b := 20, 30 // declare variables a and b
 	fmt.Println("a is", a, "b is", b)
@@ -114,7 +114,7 @@ type addsForSum struct {
 	second int
 }
 
-func TestFor(t *testing.T) {
+func _TestFor(t *testing.T) {
 	var wg sync.WaitGroup
 	var wg1 sync.WaitGroup
 	var rst = make(chan []addsForSum, 100)
@@ -157,6 +157,103 @@ func somefor(i int) (r []addsForSum) {
 	return
 }
 
-func TestSelect(t *testing.T) {
+//无buffer的chan的特性
+func _TestChanNoBuffer(t *testing.T) {
+	ch := make(chan int)
+	go func() {
+		time.Sleep(3e9)
+		ch <- 1
+	}()
+	<-ch
+	fmt.Println("main rt done")
+}
 
+//有buffer的 chan特性 communcation
+func _TestChanWithBuffer(t *testing.T) {
+	ch := make(chan int, 3)
+	go func() {
+		for i := 1; i <= 3; i++ {
+			time.Sleep(3e9)
+			fmt.Println(111)
+			ch <- 1
+		}
+	}()
+	<-ch
+}
+
+// 协程不安全demo
+func TestCounterThreadUnsafe(t *testing.T) {
+	counter := 0
+	for i := 0; i < 5000; i++ {
+		go func() {
+			counter++
+		}()
+	}
+	time.Sleep(1 * time.Second)
+	t.Logf("counter = %d", counter)
+}
+
+// 协程不安全demo + sync.Mutex 锁
+func _TestCounterThreadSafeNotGood(t *testing.T) {
+	counter := 0
+	var mut sync.Mutex
+	for i := 0; i < 5000; i++ {
+		go func() {
+			defer mut.Unlock()
+			mut.Lock()
+			counter++
+		}()
+	}
+	time.Sleep(1 * time.Second)
+	t.Logf("counter = %d", counter)
+}
+
+// 协程安全Demo
+func TestCounterWaitGroup(t *testing.T) {
+	var mut sync.Mutex    // 互斥锁
+	var wg sync.WaitGroup // 等待队列
+	counter := 0
+	for i := 0; i < 5000; i++ {
+		wg.Add(1) // 加个任务
+		go func() {
+			defer func() {
+				mut.Unlock() //函数调用完成后：解锁，保证协程安全
+			}()
+			mut.Lock() // 函数将要调用前：加锁，保证协程安全
+			counter++
+			wg.Done() // 做完任务
+		}()
+	}
+	wg.Wait() //等待所有任务执行完毕
+	t.Logf("counter = %d", counter)
+}
+
+func TestSelect(t *testing.T) {
+	ch := make(chan int, 3)
+	for i := 1; i <= 3; i++ {
+		ch <- i
+	}
+	select {
+	case ch <- 1:
+		fmt.Println("send 1 to chan")
+	case ch <- 1:
+		fmt.Println("receive 1 from chan")
+	default:
+		fmt.Println("default")
+	}
+}
+
+func TestBit(t *testing.T) {
+	c := make(chan int, 4)
+	go func() {
+		for {
+			select {
+			case c <- 0:
+			case c <- 1:
+			}
+		}
+	}()
+	for v := range c {
+		fmt.Println(v)
+	}
 }
