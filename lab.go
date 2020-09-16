@@ -1,24 +1,22 @@
 package main
 
 import (
-	"fmt"
+	"net/http"
 
-	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/mysql"
-)
-
-type Product struct {
-	gorm.Model
-	Code  string
-	Price uint
-}
-
-const (
-	dsn = "root:123@(127.0.0.1)/test?charset=utf8&parseTime=True&loc=Local"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	v := []int{1, 2, 3}
-	x := 10
-	fmt.Println(v, x)
+	e := gin.Default()
+	// 添加 Get 请求路由
+	e.GET("/", func(context *gin.Context) {
+		context.String(http.StatusOK, "hello gin")
+	})
+	e.GET("/u", func(context *gin.Context) {
+		context.String(http.StatusOK, func() string {
+			return "ganbin"
+		}())
+	})
+
+	e.Run(":8088")
 }

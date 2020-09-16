@@ -1,0 +1,15 @@
+{
+	"title":"bbbbbb",
+	"city_id":113,
+	"location":"home",
+	"key":"37dbde4b0cac22eb19e7fd34d1782927",
+	"bucket":"mall-test-public",
+	"publish_app_platform":["i","a","mp","h5"],
+	"from":1588817354,
+	"to":1588917354,
+	"sort":1,
+	"jump_type":2,
+	"jump_content":{
+		"spu_id":17
+	}
+}

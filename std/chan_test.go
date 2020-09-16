@@ -244,16 +244,18 @@ func TestSelect(t *testing.T) {
 }
 
 func TestBit(t *testing.T) {
-	c := make(chan int, 4)
+	c := make(chan int)
 	go func() {
 		for {
 			select {
 			case c <- 0:
+				time.Sleep(1e9)
 			case c <- 1:
+				time.Sleep(2 * 1e9)
 			}
 		}
 	}()
 	for v := range c {
-		fmt.Println(v)
+		fmt.Printf("%d", v)
 	}
 }
