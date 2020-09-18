@@ -20,7 +20,7 @@ func TestA(t *testing.T) {
 	fmt.Printf("%d\n", 123)
 }
 
-func isEven(i int) (isEven bool) {
+func IsEven(i int) (isEven bool) {
 	isEven = false
 	if i%2 == 0 {
 		isEven = true
@@ -29,10 +29,29 @@ func isEven(i int) (isEven bool) {
 }
 func TestCompare(t *testing.T) {
 	for _, v := range expect {
-		real := isEven(v.in)
+		real := IsEven(v.in)
 		if real != v.out {
 			fmt.Println("结果不符合预期", v)
 		}
 	}
+
+}
+
+//benchmark testing
+func BenchmarkTest(b *testing.B) {
+	fmt.Println("ewew")
+}
+
+// func ExamplePrintln() {
+// 	fmt.Println("The output of\nthis example.")
+// 	// Output: The output of111
+// 	// this example.
+// }
+func ExampleIsEven() {
+	// fmt.Println(IsEven(10))
+	//Output:true
+	fmt.Println(IsEven(10), "\n", IsEven(11))
+	//Unordered output:true
+	//false
 
 }

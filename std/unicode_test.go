@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-var s1 = "hello永"
+var s1 = "ahello永"
 var s2 = []rune(s1)
 
 func TestUnicode(t *testing.T) {

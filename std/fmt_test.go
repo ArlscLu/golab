@@ -11,7 +11,7 @@ var mint1 int = 97
 
 var mfloat1 float32 = 0.56
 
-var mstr1 string = "hello中"
+var mstr1 string = "ahello中"
 
 var mslice1 []byte = []byte("abc")
 
@@ -42,4 +42,9 @@ func TestFmtVerb(t *testing.T) {
 	fmt.Printf("%X\n", mint1)
 	// Unicode format: U+1234; same as "U+%04X"
 	fmt.Printf("%U\n", mint1)
+
+	fmt.Printf("%x", mstr1)
+	fmt.Printf("%d", 11)
+
+	//small is beautiful
 }
