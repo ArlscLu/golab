@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func Testa(t *testing.T) {
+func TestA(t *testing.T) {
 
 	t.Logf("%+v", t)
 }

@@ -26,3 +26,7 @@ time="2020-09-16T17:57:53+08:00" level=info msg=/usr/local/var/code/golab/resour
 time="2020-09-16T17:57:53+08:00" level=info msg=b.json
 time="2020-09-16T17:57:53+08:00" level=info msg=.json
 time="2020-09-16T17:57:53+08:00" level=info msg="../ /resource//../../filepath"
+time="2020-09-17T09:20:50+08:00" level=info msg=/usr/local/var/code/golab/resource/b.json
+time="2020-09-17T09:20:50+08:00" level=info msg=b.json
+time="2020-09-17T09:20:50+08:00" level=info msg=.json
+time="2020-09-17T09:20:50+08:00" level=info msg="../ /resource//../../filepath"

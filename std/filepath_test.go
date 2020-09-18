@@ -23,6 +23,7 @@ func TestFilePath(t *testing.T) {
 	log.Infoln(filepath.FromSlash(fp1))
 	if matched, err := filepath.Match("json", fp); matched {
 		fmt.Println("matched!")
+		check(err)
 	} else {
 		fmt.Println(" not matched!")
 	}
