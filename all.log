@@ -41,3 +41,5 @@ time="2020-09-17T17:41:12+08:00" level=debug msg="from third"
 time="2020-09-17T17:41:57+08:00" level=debug msg="from third"
 time="2020-09-18T09:59:58+08:00" level=debug msg=../all.log
 time="2020-09-18T15:21:45+08:00" level=debug msg="from third"
+time="2020-09-23T14:20:20+08:00" level=debug msg="from third"
+time="2020-09-23T14:20:46+08:00" level=debug msg="from third"
