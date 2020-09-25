@@ -1,0 +1,20 @@
+time="2020-09-24T11:30:46+08:00" level=info msg=/usr/local/var/code/golab/resource/b.json
+time="2020-09-24T11:30:46+08:00" level=info msg=b.json
+time="2020-09-24T11:30:46+08:00" level=info msg=.json
+time="2020-09-24T11:30:46+08:00" level=info msg="../ /resource//../../filepath"
+time="2020-09-24T11:33:16+08:00" level=info msg=/usr/local/var/code/golab/resource/b.json
+time="2020-09-24T11:33:16+08:00" level=info msg=b.json
+time="2020-09-24T11:33:16+08:00" level=info msg=.json
+time="2020-09-24T11:33:16+08:00" level=info msg="../ /resource//../../filepath"
+time="2020-09-25T10:01:59+08:00" level=info msg=/usr/local/var/code/golab/resource/b.json
+time="2020-09-25T10:01:59+08:00" level=info msg=b.json
+time="2020-09-25T10:01:59+08:00" level=info msg=.json
+time="2020-09-25T10:01:59+08:00" level=info msg="../ /resource//../../filepath"
+time="2020-09-25T10:04:18+08:00" level=info msg=/usr/local/var/code/golab/resource/b.json
+time="2020-09-25T10:04:18+08:00" level=info msg=b.json
+time="2020-09-25T10:04:18+08:00" level=info msg=.json
+time="2020-09-25T10:04:18+08:00" level=info msg="../ /resource//../../filepath"
+time="2020-09-25T10:11:10+08:00" level=info msg=/usr/local/var/code/golab/resource/b.json
+time="2020-09-25T10:11:10+08:00" level=info msg=b.json
+time="2020-09-25T10:11:10+08:00" level=info msg=.json
+time="2020-09-25T10:11:10+08:00" level=info msg="../ /resource//../../filepath"

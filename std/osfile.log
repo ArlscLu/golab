@@ -1,0 +1,20 @@
+server {
+            listen  80;
+            server_name mqj_coupon_service.local;
+            index index.php index.html;
+            root  /usr/local/var/code/mqj_coupon-service/public;
+        location  ~* \.php$ {   ##*表示不区分大小写
+                fastcgi_pass    unix:/usr/local/var/run/php/php-fpm.sock;
+                fastcgi_index   index.php;
+                fastcgi_param   SCRIPT_FILENAME $document_root$fastcgi_script_name; 
+                include fastcgi_params;  
+        }
+                location / {
+            try_files $uri $uri/ /index.php?$query_string;
+            index index.php index.html index.htm;
+        }
+            location ~ ^.+\.(swf|spg|css|xml|js|jpg|gif|png|mp3)$
+            {
+                expires         72h;
+            }
+    }

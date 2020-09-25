@@ -243,7 +243,7 @@ func TestSelect(t *testing.T) {
 	}
 }
 
-func TestBit(t *testing.T) {
+func _TestBit(t *testing.T) {
 	c := make(chan int)
 	go func() {
 		for {
