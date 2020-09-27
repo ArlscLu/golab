@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"testing"
 )
 
@@ -44,8 +45,8 @@ func ExampleIsEven() {
 }
 
 func TestFail(t *testing.T) {
-	t.Log("xxx no error")
-	// t.Error("xxx error happens")
+	env := os.Getenv("ENV")
+	fmt.Println(env)
 }
 
 //判断是否为回文，正读与反读一致

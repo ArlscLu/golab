@@ -34,6 +34,7 @@ func Run() {
 	r.createTestFile()
 	// logrus.Printf("%#v", r.pair)
 	r.rename()
+	r.sourceF.Close()
 }
 
 func New() *Rename {
