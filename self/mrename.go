@@ -2,7 +2,6 @@ package self
 
 import (
 	"bytes"
-	"fmt"
 	"io"
 	"os"
 	"regexp"
@@ -25,13 +24,16 @@ type pair struct {
 var oSource = "source.txt"
 var oDst = "mid.txt"
 
-var searchPattern = `\d{5}`
-var replacePattern = `\d{7}`
+var searchPattern = `\d{7}`
+var replacePattern = `programName":"([^"]+)"`
 
 //入口
 func Run() {
 	r := New()
 	r.setPatternPair()
+	r.createTestFile()
+	// logrus.Printf("%#v", r.pair)
+	r.rename()
 }
 
 func New() *Rename {
@@ -49,25 +51,21 @@ func New() *Rename {
 
 //把对应关系写到pattern里面
 func (re *Rename) setPatternPair() {
-	reg, err := regexp.Compile(re.searchPattern)
-	regrep, err := regexp.Compile(re.replacePattern)
-	if err != nil {
-		logrus.Errorf("%s", "创建reg出错")
-		panic(err)
-	}
+	reg := regexp.MustCompile(re.searchPattern)
+	reg2 := regexp.MustCompile(re.replacePattern)
 	lines := re.readFile()
 	for _, line := range lines {
+		touni := reg2.FindSubmatch(line)
+		if len(touni) < 2 {
+			continue
+		}
+		to := touni[1]
 		from := string(reg.Find(line))
-		to := string(regrep.Find(line))
 		re.pair = append(re.pair, pair{
 			From: from,
-			To:   to,
+			To:   string(to),
 		})
 	}
-	for _, v := range re.pair {
-		fmt.Printf("%#v\n", v)
-	}
-
 }
 
 //读对应关系
@@ -88,8 +86,45 @@ func (re *Rename) readFile() [][]byte {
 	return bytes.Split(lines, []byte{'\n'})
 }
 
+func (re *Rename) createTestFile() {
+	for _, v := range re.pair {
+		err, isExisted := isExisted(v.From)
+		if err != nil {
+			logrus.Println(`some wrong (not unexisted error) happen`)
+		}
+		if isExisted {
+			logrus.Println(v.From, `is existed, so continue`)
+			continue
+		} else {
+			logrus.Println(v.From, `find files not created yet ,now create`)
+		}
+		_, err = os.Create(v.From)
+		if err != nil {
+			panic(err)
+		}
+	}
+}
+func isExisted(s string) (e error, isExisted bool) {
+	_, err := os.Stat(s)
+	if err == nil {
+		e, isExisted = nil, true
+		return
+	}
+	if os.IsNotExist(err) {
+		e, isExisted = nil, false
+	} else {
+		e, isExisted = err, false
+	}
+	return
+}
 func (re *Rename) rename() {
-
+	for _, v := range re.pair {
+		// fmt.Printf("%#v", v)
+		err := os.Rename(v.From, v.To)
+		if err != nil {
+			logrus.Errorf("%v", err)
+		}
+	}
 }
 
 func (re *Rename) SetDir(d string) {
