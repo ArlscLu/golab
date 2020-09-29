@@ -6,6 +6,9 @@ import "sync"
 type messagePool struct {
 	pool *sync.Pool
 }
+type Message struct {
+	Count int
+}
 
 // 消息池单例
 var msgPool = &messagePool{

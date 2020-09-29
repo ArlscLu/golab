@@ -7,17 +7,17 @@ import (
 )
 
 func TestSingle(t *testing.T) {
-	t.Logf("%v", dp.Single)
 }
 
 func TestMessagePool(t *testing.T) {
-	msg0 := msgpool.Instance().GetMsg()
+	msg0 := dp.Instance().GetMsg()
 	if msg0.Count != 0 {
 		t.Errorf("expect msg count %d, but actual %d.", 0, msg0.Count)
 	}
 	msg0.Count = 1
-	msgpool.Instance().AddMsg(msg0)
-	msg1 := msgpool.Instance().GetMsg()
+	dp.Instance().AddMsg(msg0)
+	t.Errorf("%d", msg0.Count)
+	msg1 := dp.Instance().GetMsg()
 	if msg1.Count != 1 {
 		t.Errorf("expect msg count %d, but actual %d.", 1, msg1.Count)
 	}
