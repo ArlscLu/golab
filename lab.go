@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+
+	"github.com/arlsclu7/golab/self"
 )
 
 func main() {
@@ -20,6 +22,7 @@ func main() {
 	// })
 
 	// e.Run(":8088")
+	self.Run()
 	fmt.Println(thisIsEven(10))
 	env := os.Getenv("ENV3")
 	envconvert, _ := strconv.ParseInt(env, 10, 0)
