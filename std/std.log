@@ -18,3 +18,31 @@ time="2020-09-25T10:11:10+08:00" level=info msg=/usr/local/var/code/golab/resour
 time="2020-09-25T10:11:10+08:00" level=info msg=b.json
 time="2020-09-25T10:11:10+08:00" level=info msg=.json
 time="2020-09-25T10:11:10+08:00" level=info msg="../ /resource//../../filepath"
+time="2020-10-09T14:36:54+08:00" level=info msg=/usr/local/var/code/golab/resource/b.json
+time="2020-10-09T14:36:54+08:00" level=info msg=b.json
+time="2020-10-09T14:36:54+08:00" level=info msg=.json
+time="2020-10-09T14:36:54+08:00" level=info msg="../ /resource//../../filepath"
+time="2020-10-09T14:48:07+08:00" level=info msg=/usr/local/var/code/golab/resource/b.json
+time="2020-10-09T14:48:07+08:00" level=info msg=b.json
+time="2020-10-09T14:48:07+08:00" level=info msg=.json
+time="2020-10-09T14:48:07+08:00" level=info msg="../ /resource//../../filepath"
+time="2020-10-09T16:15:14+08:00" level=info msg=/usr/local/var/code/golab/resource/b.json
+time="2020-10-09T16:15:14+08:00" level=info msg=b.json
+time="2020-10-09T16:15:14+08:00" level=info msg=.json
+time="2020-10-09T16:15:14+08:00" level=info msg="../ /resource//../../filepath"
+time="2020-10-09T16:15:27+08:00" level=info msg=/usr/local/var/code/golab/resource/b.json
+time="2020-10-09T16:15:27+08:00" level=info msg=b.json
+time="2020-10-09T16:15:27+08:00" level=info msg=.json
+time="2020-10-09T16:15:27+08:00" level=info msg="../ /resource//../../filepath"
+time="2020-10-09T18:01:44+08:00" level=info msg=/usr/local/var/code/golab/resource/b.json
+time="2020-10-09T18:01:44+08:00" level=info msg=b.json
+time="2020-10-09T18:01:44+08:00" level=info msg=.json
+time="2020-10-09T18:01:44+08:00" level=info msg="../ /resource//../../filepath"
+time="2020-10-09T18:02:18+08:00" level=info msg=/usr/local/var/code/golab/resource/b.json
+time="2020-10-09T18:02:18+08:00" level=info msg=b.json
+time="2020-10-09T18:02:18+08:00" level=info msg=.json
+time="2020-10-09T18:02:18+08:00" level=info msg="../ /resource//../../filepath"
+time="2020-10-09T18:04:11+08:00" level=info msg=/usr/local/var/code/golab/resource/b.json
+time="2020-10-09T18:04:11+08:00" level=info msg=b.json
+time="2020-10-09T18:04:11+08:00" level=info msg=.json
+time="2020-10-09T18:04:11+08:00" level=info msg="../ /resource//../../filepath"

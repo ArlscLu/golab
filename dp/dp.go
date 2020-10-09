@@ -2,6 +2,6 @@ package dp
 
 import "os"
 
-func main() {
+func Ex() {
 	os.Stdout.WriteString(`hello`)
 }

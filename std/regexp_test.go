@@ -44,7 +44,7 @@ func createReg() {
 
 //文件源
 func setFind() {
-	f, err := os.OpenFile(filename1, os.O_RDONLY, 0777)
+	f, err := os.OpenFile(filename1, os.O_CREATE|os.O_RDONLY, 0777)
 	if err != nil {
 		panic(err)
 	}

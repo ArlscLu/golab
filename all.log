@@ -54,3 +54,18 @@ time="2020-09-25T10:04:15+08:00" level=debug msg="from third"
 time="2020-09-25T10:04:18+08:00" level=debug msg=../all.log
 time="2020-09-25T10:11:07+08:00" level=debug msg="from third"
 time="2020-09-25T10:11:10+08:00" level=debug msg=../all.log
+time="2020-10-09T14:36:51+08:00" level=debug msg="from third"
+time="2020-10-09T14:36:54+08:00" level=debug msg=../all.log
+time="2020-10-09T14:48:03+08:00" level=debug msg="from third"
+time="2020-10-09T14:48:07+08:00" level=debug msg=../all.log
+time="2020-10-09T16:15:11+08:00" level=debug msg="from third"
+time="2020-10-09T16:15:14+08:00" level=debug msg=../all.log
+time="2020-10-09T16:15:24+08:00" level=debug msg="from third"
+time="2020-10-09T16:15:27+08:00" level=debug msg=../all.log
+time="2020-10-09T18:01:41+08:00" level=debug msg="from third"
+time="2020-10-09T18:01:44+08:00" level=debug msg=../all.log
+time="2020-10-09T18:02:15+08:00" level=debug msg="from third"
+time="2020-10-09T18:02:18+08:00" level=debug msg=../all.log
+time="2020-10-09T18:04:08+08:00" level=debug msg="from third"
+time="2020-10-09T18:04:11+08:00" level=debug msg=../all.log
+time="2020-10-09T18:08:18+08:00" level=debug msg="from third"

@@ -9,7 +9,7 @@ import (
 )
 
 func TestRead(t *testing.T) {
-	f, err := os.OpenFile("bak.txt", os.O_RDONLY, 0666)
+	f, err := os.OpenFile("bak.txt", os.O_CREATE|os.O_RDONLY, 0666)
 	if err != nil {
 		logrus.Debugln(err)
 	}

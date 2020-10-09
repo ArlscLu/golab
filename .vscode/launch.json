@@ -18,9 +18,10 @@
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program":"${workspaceFolder}/lab.go",
+            "program":"${workspaceFolder}/std/flag_test.go",
             "env":{"ENV": "PROD","ENV2": "PROD","ENV3":11},
-            "args": ["-delta=7h,8s,9s -d=123 -t"],
+            // "args": ["-delta=7h,8s,9s -d=123 -t"],
+            "args": ["-age=19"],
             "showLog": false
         },
         {
@@ -30,7 +31,7 @@
             "mode": "test",
             //In test or debug mode, this refers to the absolute path to the package or file to debug. 
             //In exec mode, this is the existing binary file to debug. Not applicable to attach requests.
-            "program":"/usr/local/var/code/golab/test_test.go",
+            "program":"/usr/local/var/code/golab/std/flag_test.go",
             "env":{"ENV": "PROD","ENV2": "PROD","ENV3":11},
             "args": ["-test.v"],
             "showLog": false
