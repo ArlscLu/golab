@@ -11,6 +11,20 @@ type typeme struct {
 	id int
 }
 
+//Typeme xxxx
+type Typeme struct {
+	id int
+}
+
+//String xxstring
+func (t Typeme) String() string {
+	return `this is string `
+}
+
+//Naming 列出文件名
+func Naming() {}
+
+//Dxxx
 func (t typeme) String() string {
 	return `this is string `
 }
