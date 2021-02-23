@@ -39,7 +39,10 @@ func TestGormSelectSome(t *testing.T) {
 	for i, rc := range rcs {
 		t.Logf("找到的第%d个,%+v\n", i+1, rc)
 	}
-	z, _ := json.Marshal(rcs)
+	pt(rcs)
+}
+func pt(i interface{}) {
+	z, _ := json.Marshal(i)
 	var b bytes.Buffer
 	_ = json.Indent(&b, z, "", "    ")
 	os.Stdout.WriteString(b.String())
