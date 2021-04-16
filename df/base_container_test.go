@@ -3,7 +3,7 @@ package df
 import "testing"
 
 //testrune 测试rune字面量 的使用
-func TestRune(t *testing.T) {
+func TestRuneLiteral(t *testing.T) {
 	//rune == int32
 	list := table{
 		"\\n": []rune{
