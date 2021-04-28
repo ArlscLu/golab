@@ -1,0 +1,98 @@
+{
+    "topic": "推广员新增",
+    "url": "api/proxy/act/mapi/promoter/add",
+    "in": {
+        "group_id": 1,
+        "list": [
+            {
+                "task_id": 1,
+                "task_kind": 11,
+                "task_title": "饮食记录奖励",
+                "list": [
+                    {
+                        "id": 1,
+                        "reward_rule": 11,
+                        "reward_type": 2,
+                        "reward_value": "5"
+                    },
+                    {
+                        "id": 2,
+                        "reward_rule": 21,
+                        "reward_type": 2,
+                        "reward_value": "10"
+                    },
+                    {
+                        "id": 3,
+                        "reward_rule": 22,
+                        "reward_type": 2,
+                        "reward_value": "15"
+                    },
+                    {
+                        "id": 4,
+                        "reward_rule": 23,
+                        "reward_type": 3,
+                        "reward_value": "ts001,ts002,ts003"
+                    }
+                ]
+            },
+            {
+                "task_id": 2,
+                "task_kind": 12,
+                "task_title": "体重记录奖励",
+                "list": [
+                    {
+                        "id": 5,
+                        "reward_rule": 11,
+                        "reward_type": 2,
+                        "reward_value": "5"
+                    },
+                    {
+                        "id": 6,
+                        "reward_rule": 21,
+                        "reward_type": 2,
+                        "reward_value": "10"
+                    },
+                    {
+                        "id": 7,
+                        "reward_rule": 22,
+                        "reward_type": 2,
+                        "reward_value": "15"
+                    },
+                    {
+                        "id": 8,
+                        "reward_rule": 23,
+                        "reward_type": 3,
+                        "reward_value": "ts001,ts002,ts003"
+                    }
+                ]
+            }
+        ]
+    },
+    "out": {
+        "code": 0,
+        "data": {
+          "list": [
+            {
+              "group_id": 1,
+              "group_title": "每日健康打卡",
+              "group_status": 0,
+              "update_time": 1614675531
+            },
+            {
+              "group_id": 2,
+              "group_title": "每日问答",
+              "group_status": 1,
+              "update_time": 1614675531
+            },
+            {
+              "group_id": 3,
+              "group_title": "填写个人健康数据",
+              "group_status": 0,
+              "update_time": 1614675531
+            }
+          ]
+        },
+        "msg": "success",
+        "trace_id": "83a1ec395a1775cb62a1d8b89366727e"
+      }
+}
