@@ -34,12 +34,12 @@ func add() {
 func longTime2() {
 	time.Sleep(2 * time.Second)
 	fmt.Print("I lost 2 seconds")
-	wg.Done()
+	wg1.Done()
 }
 func longTime1() {
 	time.Sleep(1 * time.Second)
 	fmt.Print("I lost 1 seconds")
-	wg.Done()
+	wg1.Done()
 }
 
 func shortTime() {
@@ -48,7 +48,7 @@ func shortTime() {
 }
 
 func TestNotWait(t *testing.T) {
-	wg.Add(3)
+	wg1.Add(3)
 	shortTime()
 	shortTime()
 	shortTime()
@@ -59,7 +59,7 @@ func TestNotWait(t *testing.T) {
 	shortTime()
 	shortTime()
 	shortTime()
-	wg.Wait()
+	wg1.Wait()
 
 }
 
