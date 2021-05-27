@@ -3,6 +3,7 @@ package tchannel
 import (
 	"fmt"
 	"math/rand"
+	"sync"
 	"testing"
 	"time"
 )
@@ -41,8 +42,8 @@ func TestStatusChannel(t *testing.T) {
 //channel用作 future/promose
 func TestPromose(t *testing.T) {
 	done := makePromise()
-	fmt.Printf("%T", done)
-	fmt.Print(<-done)
+	<-done
+	t.Log("all done")
 }
 
 //返回参数隐式转换为 <-chan
@@ -67,4 +68,55 @@ func TestFastestChannel(t *testing.T) {
 		}(i)
 	}
 	t.Logf("fastest is %d", <-ch1)
+}
+func TestAfterTime(t *testing.T) {
+	t.Log("yy")
+	<-time.After(2 * time.Second)
+	t.Log("xx")
+}
+
+func TestTickTime(t *testing.T) {
+	c := time.Tick(2 * time.Second)
+	for next := range c {
+		fmt.Printf("%v %s\n", next, "exist once")
+	}
+}
+func TestShared(t *testing.T) {
+	var sh int
+	var wg sync.WaitGroup
+	wg.Add(1)
+	go func() {
+
+		for i := 0; i < 10000; i++ {
+			sh++
+		}
+		wg.Done()
+
+	}()
+	wg.Wait()
+	for i := 0; i < 10000; i++ {
+		sh++
+	}
+
+	time.Sleep(1 * time.Second)
+	t.Log(sh)
+}
+
+func TestTranslate(t *testing.T) {
+
+	var sh1 int = 3000
+	var sh2 int = 7000
+	var mu sync.Mutex
+	//trans
+	trans := func() {
+		mu.Lock()
+		sh1 -= 2000
+		sh2 += 2000
+		mu.Unlock()
+	}
+	for i := 0; i < 10000; i++ {
+		go trans()
+	}
+	t.Log(sh1 + sh2)
+	t.Log(sh1 + sh2)
 }

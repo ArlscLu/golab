@@ -3,10 +3,10 @@ package std
 import (
 	"testing"
 
-	"github.com/arlsclu7/golab/third"
+	"github.com/arlsclu7/golab/tthird"
 )
 
 func TestBufio(t *testing.T) {
-	log := third.Log
+	log := tthird.Log
 	log.Debugln("from third")
 }

@@ -11,7 +11,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/arlsclu7/golab/third"
+	"github.com/arlsclu7/golab/tthird"
 )
 
 // var filename = "../resource/a.dat"
@@ -22,7 +22,7 @@ func TestFile(t *testing.T) {
 	if err != nil {
 		panic(err)
 	}
-	third.Log.Debug(f.Name())
+	tthird.Log.Debug(f.Name())
 	in := make([]byte, 200)
 	var sp [][]byte
 	// out := make([]byte, 5)

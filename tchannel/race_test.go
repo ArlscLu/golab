@@ -83,3 +83,56 @@ func printErrorIfZero() {
 		panic("xxxxx")
 	}
 }
+
+func TestChannelRace(t *testing.T) {
+	c := make(chan int) // 一个非缓冲通道
+	go func(ch chan<- int, x int) {
+		time.Sleep(time.Second)
+		// <-ch        // 此操作编译不通过
+		ch <- x * x // 阻塞在此，直到发送的值被接收
+	}(c, 3)
+	done := make(chan struct{})
+	go func(ch <-chan int) {
+		n := <-ch      // 阻塞在此，直到有值发送到c
+		fmt.Println(n) // 9
+		// ch <- 123   // 此操作编译不通过
+		time.Sleep(time.Second)
+		done <- struct{}{}
+	}(c)
+	<-done // 阻塞在此，直到有值发送到done
+	fmt.Println("bye")
+}
+
+func TestBall(t *testing.T) {
+	var ball = make(chan string)
+	kickBall := func(playerName string) {
+		for {
+			fmt.Print(<-ball, "传球", "\n")
+			time.Sleep(time.Second)
+			ball <- playerName
+		}
+	}
+	go kickBall("张三")
+	go kickBall("李四")
+	go kickBall("王二麻子")
+	go kickBall("刘大")
+	ball <- "裁判"    // 开球
+	var c chan bool // 一个零值nil通道
+	<-c             // 永久阻塞在此
+}
+
+func TestGlobalVar(t *testing.T) {
+
+	var i = 0
+	go func() {
+		for {
+			fmt.Println("i is", i)
+			time.Sleep(time.Second)
+		}
+	}()
+
+	for {
+		i += 1
+		//fmt.Println("我爱你 ", i)
+	}
+}
