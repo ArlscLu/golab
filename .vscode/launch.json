@@ -18,7 +18,7 @@
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program":"${workspaceFolder}/clear/a.go",
+            "program":"${workspaceFolder}/tstd/tnet/main.go",
             "env":{"ENV": "PROD","ENV2": "PROD","ENV3":11},
             // "args": ["-delta=7h,8s,9s -d=123 -t"],
             "args": ["-age=19"],

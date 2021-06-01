@@ -38,8 +38,13 @@ func (is *InsideStruct) MarshalJSON() ([]byte, error) {
 	return []byte("yyyy"), nil
 }
 
+func (is *InsideStruct) String() string {
+	return ""
+}
+
 var _ json.Marshaler = &InsideStruct{}
 var _ json.Marshaler = time.Time{}
 
 // var _ json.Marshaler = f{}
 var _ json.Marshaler = &ff{}
+var _ fmt.Stringer = &InsideStruct{}

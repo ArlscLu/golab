@@ -23,6 +23,6 @@ require (
 	gopkg.in/ini.v1 v1.62.0 // indirect
 	gopkg.in/jellycheng/cjsgorm.v1 v1.0.0
 	gopkg.in/yaml.v2 v2.4.0 // indirect
-	gorm.io/driver/mysql v1.0.4
-	gorm.io/gorm v1.20.12
+	gorm.io/driver/mysql v0.2.7
+	gorm.io/gorm v1.21.10
 )
