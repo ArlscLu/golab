@@ -1,0 +1,15 @@
+61491:C 03 Jun 2021 14:27:37.817 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+61491:C 03 Jun 2021 14:27:37.817 # Redis version=6.0.5, bits=64, commit=00000000, modified=0, pid=61491, just started
+61491:C 03 Jun 2021 14:27:37.817 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+61491:M 03 Jun 2021 14:27:37.818 * Increased maximum number of open files to 10032 (it was originally set to 256).
+61491:M 03 Jun 2021 14:27:37.824 # Could not create server TCP listening socket *:6379: bind: Address already in use
+nginx: [emerg] bind() to 0.0.0.0:80 failed (48: Address already in use)
+[03-Jun-2021 14:27:38] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[03-Jun-2021 14:27:38] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[03-Jun-2021 14:27:38] ERROR: Another FPM instance seems to already listen on /usr/local/var/run/php/php-fpm.sock
+[03-Jun-2021 14:27:38] ERROR: FPM initialization failed
+nginx: [emerg] bind() to 0.0.0.0:80 failed (48: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:80 failed (48: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:80 failed (48: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:80 failed (48: Address already in use)
+nginx: [emerg] still could not bind()
